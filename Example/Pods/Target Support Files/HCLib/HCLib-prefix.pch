@@ -1,0 +1,62 @@
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#else
+#ifndef FOUNDATION_EXPORT
+#if defined(__cplusplus)
+#define FOUNDATION_EXPORT extern "C"
+#else
+#define FOUNDATION_EXPORT extern
+#endif
+#endif
+#endif
+
+//
+//  JRPLugin.pch
+//  JRPLugin
+//
+//  Created by 何崇 on 2017/10/26.
+//  Copyright © 2017年 HeChong. All rights reserved.
+//
+
+
+#ifdef  __OBJC__
+
+#import "JRGlobalVariable.h"
+#import "UIImageView+NickWebCache.h"
+#import "NickMBProgressHUD+MJ.h"
+#import "UIButton+JRSY.h"
+#import "NSString+JRSY.h"
+#import "UIBarButtonItem+JRExtension.h"
+#import "JRRootViewController.h"
+#import "JRRootTableViewController.h"
+#import "JRSYSingleClass.h"
+#import "JRSYHttpTool.h"
+#import "UIView+JRExtension.h"
+#import "Routable.h"
+#import "JRUtils.h"
+#import "CPCacheUtility.h"
+#import "JRPattern.h"
+#import "CPUIActivityIndicator.h"
+#import "JRGlobalUrlConfig.h"
+#import "JRGlobalProperty.h"
+#import "JRRRGB.h"
+#import "CSIILabelButton.h"
+#import "CSIIConfigGlobalImport.h"
+
+#import "UIColor+JRHex.h"
+#import "JRJumpClientToVx.h"
+#import "JRJumpIntercept.h"
+#import "JRCheckAcNo.h"
+#import "LibAesSingle.h"
+#import "JRVXWebViewController.h"
+#import "JRH5AppViewController.h"
+#import "JRPublisherH5Vc.h"
+#import "JRConsumeQRViewController.h"
+#import "JRScanViewController.h"
+#import "UIImage+CPExtensions.h"
+#import "CPMajorManager.h"
+#import "NickMJRefresh.h"
+#import "JRPluginUtil.h"
+
+#endif
+

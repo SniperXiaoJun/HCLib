@@ -1,0 +1,37 @@
+{
+  "name": "HCLib",
+  "version": "1.0",
+  "summary": "Guide for private pods :",
+  "description": "Guide for private pods",
+  "homepage": "https://github.com/hexiaochong/HCLib",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "hexiaochong": "980929274@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/hexiaochong/HCLib.git"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "Sources/**/*.{h,m,mm,c}",
+  "requires_arc": "Sources/ARC/**/*.{m,mm,c}",
+  "prefix_header_file": "Sources/ARC/GlobalFile/JRPLugin.pch",
+  "preserve_paths": "Sources/Lib/*.a",
+  "vendored_libraries": "Sources/Lib/*.a",
+  "resources": "BundleFiles/*.bundle",
+  "libraries": [
+    "iconv.2.4.0",
+    "stdc++",
+    "z",
+    "sqlite3"
+  ],
+  "dependencies": {
+    "CocoaAsyncSocket": [
+
+    ]
+  }
+}

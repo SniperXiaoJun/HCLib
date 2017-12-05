@@ -1,0 +1,6 @@
+framework module HCLib {
+  umbrella header "HCLib-umbrella.h"
+
+  export *
+  module * { export * }
+}
