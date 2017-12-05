@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
 spec.name             = 'HCLib'
-spec.version          = '1.0'
+spec.version          = '1.1'
 spec.summary          = 'Guide for private pods :'
 spec.description      = <<-DESC
 Guide for private pods
@@ -24,6 +24,7 @@ spec.resource = "BundleFiles/*.bundle"
 spec.libraries = 'iconv.2.4.0','stdc++','z','sqlite3'
 
 spec.dependency 'CocoaAsyncSocket'
+spec.dependency 'ZBarSDK'
 
 end
 

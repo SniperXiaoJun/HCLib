@@ -32,6 +32,9 @@
   "dependencies": {
     "CocoaAsyncSocket": [
 
+    ],
+    "ZBarSDK": [
+
     ]
   }
 }
