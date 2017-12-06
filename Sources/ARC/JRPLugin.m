@@ -130,6 +130,12 @@
         Singleton.SJJLoginBlock = loginBlock;
     }
 
+    //直接进入我的钱包
+    JRMyWalletViewController *wallet = [[JRMyWalletViewController alloc] init];
+    Singleton.myWalletVC = wallet;
+    [Singleton.rootViewController pushViewController:wallet animated:YES];
+    return;
+
 
     //验证通过
     if ([self checkXToken]) {

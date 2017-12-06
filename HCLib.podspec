@@ -23,8 +23,12 @@ spec.vendored_libraries = "Sources/Lib/*.a"
 spec.resource = "BundleFiles/*.bundle"
 spec.libraries = 'iconv.2.4.0','stdc++','z','sqlite3'
 
+spec.framework    = 'MobileCoreServices'
 spec.dependency 'CocoaAsyncSocket'
 spec.dependency 'ZBarSDK'
+spec.dependency 'objective-zip', '~> 1.0.5'
+
+#spec.dependency 'Minizip', '~> 1.0.0'
 
 end
 

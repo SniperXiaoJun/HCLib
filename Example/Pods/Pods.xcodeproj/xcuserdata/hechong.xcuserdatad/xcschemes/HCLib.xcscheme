@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '32085DE807B9531EFAACC9FFA301A989'
+               BlueprintIdentifier = 'C3323C311BD215A163D1F6DF84680A8E'
                BlueprintName = 'HCLib'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'HCLib.framework'>

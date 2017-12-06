@@ -1,6 +1,6 @@
 {
   "name": "HCLib",
-  "version": "1.0",
+  "version": "1.1",
   "summary": "Guide for private pods :",
   "description": "Guide for private pods",
   "homepage": "https://github.com/hexiaochong/HCLib",
@@ -29,12 +29,16 @@
     "z",
     "sqlite3"
   ],
+  "frameworks": "MobileCoreServices",
   "dependencies": {
     "CocoaAsyncSocket": [
 
     ],
     "ZBarSDK": [
 
+    ],
+    "objective-zip": [
+      "~> 1.0.5"
     ]
   }
 }
