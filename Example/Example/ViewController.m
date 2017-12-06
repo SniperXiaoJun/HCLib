@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-#import </Users/hechong/Documents/设计家Plugin/Sources/ARC/JRPLugin.h>
+//#import </Users/hechong/Documents/设计家Plugin/Sources/ARC/JRPLugin.h>
 
 @interface ViewController ()
 
@@ -20,11 +20,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-     JRPLugin *plugin = [JRPLugin shareInstance];
-    [plugin ToJRPluginWithEntranceInfo:[NSDictionary dictionary] loginBlock:^(NSDictionary *dict) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"X-Token回调函数" message:@"这里是设计家回调函数" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-        [alert show];
-    }];
+//     JRPLugin *plugin = [JRPLugin shareInstance];
+//    [plugin ToJRPluginWithEntranceInfo:[NSDictionary dictionary] loginBlock:^(NSDictionary *dict) {
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"X-Token回调函数" message:@"这里是设计家回调函数" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+//        [alert show];
+//    }];
 }
 
 
