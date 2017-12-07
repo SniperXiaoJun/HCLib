@@ -18,7 +18,6 @@ spec.requires_arc = 'Sources/ARC/**/*.{m,mm,c}'
 
 spec.prefix_header_file = 'Sources/ARC/GlobalFile/JRPLugin.pch'
 
-
 spec.preserve_paths = "Sources/Lib/*.a"
 spec.vendored_libraries = "Sources/Lib/*.a"
 spec.resource = "BundleFiles/*.bundle"

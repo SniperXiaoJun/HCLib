@@ -54,10 +54,9 @@ extern "C" {
 #include "zlib.h"
 #endif
 
-#ifndef CSIIMADP__ZLIBIOAPI_H
-#include "ioapi.h"
+#ifndef CSIIMADPcrc__ZLIBIOAPI_H
+#include "CSIIMADPioapi.h"
 #endif
-
 
 #if defined(STRICTZIP) || defined(STRICTZIPUNZIP)
 /* like the STRICT of WIN32, we define a pointer that cannot be converted
@@ -132,7 +131,7 @@ extern zipFile ZEXPORT CSIIMADP_zipOpen OF((const char *pathname, int append));
    Of couse, you can use RAW reading and writing to copy the file you did not want delte
 */
 
-extern zipFile ZEXPORT zipOpen2 OF((const char *pathname,
+extern zipFile ZEXPORT CSIIMADP_zipOpen2 OF((const char *pathname,
                                    int append,
                                    zipcharpc* globalcomment,
                                    zlib_filefunc_def* pzlib_filefunc_def));

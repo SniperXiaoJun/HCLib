@@ -33,7 +33,7 @@
 
 #import <Foundation/Foundation.h>
 
-#include "zip.h"
+#include "CSIIMADPzip.h"
 
 
 @interface CSIIMADPZipWriteStream : NSObject {
