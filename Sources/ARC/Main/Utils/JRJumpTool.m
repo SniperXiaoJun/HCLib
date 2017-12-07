@@ -30,20 +30,13 @@
 #import "CPCacheUtility.h"
 #import "CSIIDownLoadUtility.h"
 #import "JRUtils.h"
-//#import "JRUploadIdCardViewController.h"
 #import "CPImage.h"
-//#import "JRSYImagePickerViewController.h"
-//#import "Register2ViewController.h"
-//#import "JRBindCardViewController.h"
+#import "JRJumpIntercept.h"
 #import "JRConsumeResultViewController.h"
 #import "CPOpenPdf.h"
 #import "JRConsumeQRViewController.h"
-//#import "JRBindCardViewController.h"
-//#import "ChangeLoginPasswordViewController.h"
-//#import "JRChangeTransactionPasswordViewController.h"
-//#import "JRForgetTransactionPassword2ViewController.h"
-//#import "ForgetLoginPassword2ViewController.h"
-//#import "JRBindCardViewController.h"
+#import "JRJumpClientToVx.h"
+#import "JRPluginUtil.h"
 
 @implementation JRJumpTool
 

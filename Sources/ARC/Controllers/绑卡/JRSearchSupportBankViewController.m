@@ -7,6 +7,7 @@
 //
 
 #import "JRSearchSupportBankViewController.h"
+#import "JRSYHttpTool.h"
 
 @interface JRSearchSupportBankViewController ()
 {

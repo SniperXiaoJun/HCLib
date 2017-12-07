@@ -10,6 +10,7 @@
 #import "JRUploadIdCardViewController.h"
 #import "JRBindCardViewController.h"
 #import "JRPluginUtil.h"
+#import "JRJumpClientToVx.h"
 
 @interface JRStagePayMenuController ()
 

@@ -9,6 +9,8 @@
 #import "JRUploadIdCardViewController.h"
 #import "CSIICustomTextField.h"
 #import "JRUploadIDCardSuccessViewController.h"
+#import "JRSYHttpTool.h"
+
 #define SCALE (ScreenWidth/320)
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width

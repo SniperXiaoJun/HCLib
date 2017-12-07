@@ -10,8 +10,9 @@
 #import "JRStagePayAuthorizeController.h"
 #import "JRStagePayAdsController.h"
 #import "JRStagePayMenuController.h"
-
+#import "JRJumpClientToVx.h"
 #import "CSIIFormatUitli.h"
+#import "JRPluginUtil.h"
 
 #define DefaultFrame ScaleFrame(0, 0, DeviceWidth, 140)
 #define SectionThreeLogoFrame ScaleFrame(15, 15, 16, 16)

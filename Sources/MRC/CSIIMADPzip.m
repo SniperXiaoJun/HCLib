@@ -139,7 +139,7 @@ typedef struct
 
 typedef struct
 {
-    CSIIMADP_zlib_filefunc_def z_filefunc;
+    zlib_filefunc_def z_filefunc;
     voidpf filestream;        /* io structore of the zipfile */
     linkedlist_data central_dir;/* datablock with central dir in construction*/
     int  in_opened_file_inzip;  /* 1 if a file in the zip is currently writ.*/
@@ -255,10 +255,10 @@ local int add_data_in_datablock(ll,buf,len)
    nbByte == 1, 2 or 4 (byte, short or long)
 */
 
-local int ziplocal_putValue OF((const CSIIMADP_zlib_filefunc_def* pzlib_filefunc_def,
+local int ziplocal_putValue OF((const zlib_filefunc_def* pzlib_filefunc_def,
                                 voidpf filestream, uLong x, int nbByte));
 local int ziplocal_putValue (pzlib_filefunc_def, filestream, x, nbByte)
-    const CSIIMADP_zlib_filefunc_def* pzlib_filefunc_def;
+    const zlib_filefunc_def* pzlib_filefunc_def;
     voidpf filestream;
     uLong x;
     int nbByte;
@@ -327,12 +327,12 @@ local uLong ziplocal_TmzDateToDosDate(ptm,dosDate)
 /****************************************************************************/
 
 local int ziplocal_getByte OF((
-    const CSIIMADP_zlib_filefunc_def* pzlib_filefunc_def,
+    const zlib_filefunc_def* pzlib_filefunc_def,
     voidpf filestream,
     int *pi));
 
 local int ziplocal_getByte(pzlib_filefunc_def,filestream,pi)
-    const CSIIMADP_zlib_filefunc_def* pzlib_filefunc_def;
+    const zlib_filefunc_def* pzlib_filefunc_def;
     voidpf filestream;
     int *pi;
 {
@@ -357,12 +357,12 @@ local int ziplocal_getByte(pzlib_filefunc_def,filestream,pi)
    Reads a long in LSB order from the given gz_stream. Sets
 */
 local int ziplocal_getShort OF((
-    const CSIIMADP_zlib_filefunc_def* pzlib_filefunc_def,
+    const zlib_filefunc_def* pzlib_filefunc_def,
     voidpf filestream,
     uLong *pX));
 
 local int ziplocal_getShort (pzlib_filefunc_def,filestream,pX)
-    const CSIIMADP_zlib_filefunc_def* pzlib_filefunc_def;
+    const zlib_filefunc_def* pzlib_filefunc_def;
     voidpf filestream;
     uLong *pX;
 {
@@ -385,12 +385,12 @@ local int ziplocal_getShort (pzlib_filefunc_def,filestream,pX)
 }
 
 local int ziplocal_getLong OF((
-    const CSIIMADP_zlib_filefunc_def* pzlib_filefunc_def,
+    const zlib_filefunc_def* pzlib_filefunc_def,
     voidpf filestream,
     uLong *pX));
 
 local int ziplocal_getLong (pzlib_filefunc_def,filestream,pX)
-    const CSIIMADP_zlib_filefunc_def* pzlib_filefunc_def;
+    const zlib_filefunc_def* pzlib_filefunc_def;
     voidpf filestream;
     uLong *pX;
 {
@@ -428,11 +428,11 @@ local int ziplocal_getLong (pzlib_filefunc_def,filestream,pX)
     the global comment)
 */
 local uLong ziplocal_SearchCentralDir OF((
-    const CSIIMADP_zlib_filefunc_def* pzlib_filefunc_def,
+    const zlib_filefunc_def* pzlib_filefunc_def,
     voidpf filestream));
 
 local uLong ziplocal_SearchCentralDir(pzlib_filefunc_def,filestream)
-    const CSIIMADP_zlib_filefunc_def* pzlib_filefunc_def;
+    const zlib_filefunc_def* pzlib_filefunc_def;
     voidpf filestream;
 {
     unsigned char* buf;
@@ -441,7 +441,7 @@ local uLong ziplocal_SearchCentralDir(pzlib_filefunc_def,filestream)
     uLong uMaxBack=0xffff; /* maximum size of global comment */
     uLong uPosFound=0;
 
-    if (CSIIMADP_ZSEEK(*pzlib_filefunc_def,filestream,0,CSIIMADPcrc_ZLIB_FILEFUNC_CSIIMADP_SEEK_END) != 0)
+    if (CSIIMADP_ZSEEK(*pzlib_filefunc_def,filestream,0,ZLIB_FILEFUNC_SEEK_END) != 0)
         return 0;
 
 
@@ -467,7 +467,7 @@ local uLong ziplocal_SearchCentralDir(pzlib_filefunc_def,filestream)
 
         uReadSize = ((BUFREADCOMMENT+4) < (uSizeFile-uReadPos)) ?
                      (BUFREADCOMMENT+4) : (uSizeFile-uReadPos);
-        if (CSIIMADP_ZSEEK(*pzlib_filefunc_def,filestream,uReadPos,CSIIMADPcrc_ZLIB_FILEFUNC_SEEK_SET)!=0)
+        if (CSIIMADP_ZSEEK(*pzlib_filefunc_def,filestream,uReadPos,ZLIB_FILEFUNC_SEEK_SET)!=0)
             break;
 
         if (CSIIMADP_ZREAD(*pzlib_filefunc_def,filestream,buf,uReadSize)!=uReadSize)
@@ -494,7 +494,7 @@ extern zipFile ZEXPORT CSIIMADP_zipOpen2 (pathname, append, globalcomment, pzlib
     const char *pathname;
     int append;
     zipcharpc* globalcomment;
-    CSIIMADP_zlib_filefunc_def* pzlib_filefunc_def;
+    zlib_filefunc_def* pzlib_filefunc_def;
 {
     zip_internal ziinit;
     zip_internal* zi;
@@ -502,7 +502,7 @@ extern zipFile ZEXPORT CSIIMADP_zipOpen2 (pathname, append, globalcomment, pzlib
 
 
     if (pzlib_filefunc_def==NULL)
-        CSIIMADP_fill_fopen_filefunc(&ziinit.z_filefunc);
+        fill_fopen_filefunc(&ziinit.z_filefunc);
     else
         ziinit.z_filefunc = *pzlib_filefunc_def;
 
@@ -510,8 +510,8 @@ extern zipFile ZEXPORT CSIIMADP_zipOpen2 (pathname, append, globalcomment, pzlib
                  (ziinit.z_filefunc.opaque,
                   pathname,
                   (append == APPEND_STATUS_CREATE) ?
-                  (CSIIMADPcrc_ZLIB_FILEFUNC_MODE_READ | CSIIMADPcrc_ZLIB_FILEFUNC_MODE_WRITE | CSIIMADPcrc_ZLIB_FILEFUNC_MODE_CREATE) :
-                    (CSIIMADPcrc_ZLIB_FILEFUNC_MODE_READ | CSIIMADPcrc_ZLIB_FILEFUNC_MODE_WRITE | CSIIMADPcrc_ZLIB_FILEFUNC_MODE_EXISTING));
+                  (ZLIB_FILEFUNC_MODE_READ | ZLIB_FILEFUNC_MODE_WRITE | ZLIB_FILEFUNC_MODE_CREATE) :
+                    (ZLIB_FILEFUNC_MODE_READ | ZLIB_FILEFUNC_MODE_WRITE | ZLIB_FILEFUNC_MODE_EXISTING));
 
     if (ziinit.filestream == NULL)
         return NULL;
@@ -556,7 +556,7 @@ extern zipFile ZEXPORT CSIIMADP_zipOpen2 (pathname, append, globalcomment, pzlib
             err=ZIP_ERRNO;
 
         if (CSIIMADP_ZSEEK(ziinit.z_filefunc, ziinit.filestream,
-                                        central_pos,CSIIMADPcrc_ZLIB_FILEFUNC_SEEK_SET)!=0)
+                                        central_pos,ZLIB_FILEFUNC_SEEK_SET)!=0)
             err=ZIP_ERRNO;
 
         /* the signature, already checked */
@@ -627,7 +627,7 @@ extern zipFile ZEXPORT CSIIMADP_zipOpen2 (pathname, append, globalcomment, pzlib
             void* buf_read = (void*)ALLOC(buf_size);
             if (CSIIMADP_ZSEEK(ziinit.z_filefunc, ziinit.filestream,
                   offset_central_dir + byte_before_the_zipfile,
-                  CSIIMADPcrc_ZLIB_FILEFUNC_SEEK_SET) != 0)
+                  ZLIB_FILEFUNC_SEEK_SET) != 0)
                   err=ZIP_ERRNO;
 
             while ((size_central_dir_to_read>0) && (err==ZIP_OK))
@@ -649,7 +649,7 @@ extern zipFile ZEXPORT CSIIMADP_zipOpen2 (pathname, append, globalcomment, pzlib
         ziinit.number_entry = number_entry_CD;
 
         if (CSIIMADP_ZSEEK(ziinit.z_filefunc, ziinit.filestream,
-                  offset_central_dir+byte_before_the_zipfile,CSIIMADPcrc_ZLIB_FILEFUNC_SEEK_SET)!=0)
+                  offset_central_dir+byte_before_the_zipfile,ZLIB_FILEFUNC_SEEK_SET)!=0)
             err=ZIP_ERRNO;
     }
 
@@ -1095,7 +1095,7 @@ extern int ZEXPORT CSIIMADP_zipCloseFileInZipRaw (file, uncompressed_size, crc32
     {
         long cur_pos_inzip = CSIIMADP_ZTELL(zi->z_filefunc,zi->filestream);
         if (CSIIMADP_ZSEEK(zi->z_filefunc,zi->filestream,
-                  zi->ci.pos_local_header + 14,CSIIMADPcrc_ZLIB_FILEFUNC_SEEK_SET)!=0)
+                  zi->ci.pos_local_header + 14,ZLIB_FILEFUNC_SEEK_SET)!=0)
             err = ZIP_ERRNO;
 
         if (err==ZIP_OK)
@@ -1108,7 +1108,7 @@ extern int ZEXPORT CSIIMADP_zipCloseFileInZipRaw (file, uncompressed_size, crc32
             err = ziplocal_putValue(&zi->z_filefunc,zi->filestream,uncompressed_size,4);
 
         if (CSIIMADP_ZSEEK(zi->z_filefunc,zi->filestream,
-                  cur_pos_inzip,CSIIMADPcrc_ZLIB_FILEFUNC_SEEK_SET)!=0)
+                  cur_pos_inzip,ZLIB_FILEFUNC_SEEK_SET)!=0)
             err = ZIP_ERRNO;
     }
 

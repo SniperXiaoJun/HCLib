@@ -12,6 +12,7 @@
 #import "JRMyWalletStagePayView.h"
 #import "NickMJRefresh.h"
 #import "JRSettingController.h"
+#import "JRPluginUtil.h"
 
 //第一个section
 #define SectionOneFrame ScaleFrame(0, 0, DeviceWidth, 185 )

@@ -17,6 +17,15 @@
 #import "JRStagePayAdsController.h"
 #import "JRStagePayMenuController.h"
 #import "JRPayTableViewController.h"
+#import "CPCacheUtility.h"
+#import "JRJumpClientToVx.h"
+#import "JRScanViewController.h"
+#import "JRConsumeQRViewController.h"
+#import "CPMajorManager.h"
+#import "JRSYHttpTool.h"
+#import "JRPublisherH5Vc.h"
+
+
 
 @interface JRPLugin ()
 

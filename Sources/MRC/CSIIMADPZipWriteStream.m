@@ -34,7 +34,7 @@
 #import "CSIIMADPZipWriteStream.h"
 #import "CSIIMADPZipException.h"
 
-#include "CSIIMADPzip.h"
+#include "zip.h"
 
 
 @implementation CSIIMADPZipWriteStream

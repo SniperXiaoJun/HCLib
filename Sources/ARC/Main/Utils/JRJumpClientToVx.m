@@ -8,6 +8,7 @@
 
 #import "JRJumpClientToVx.h"
 #import "JRJumpTool.h"
+#import "JRSYHttpTool.h"
 
 @implementation JRJumpClientToVx
 + (void)jumpWithZipID:(NSString *)zipID controller:(UIViewController *)controller{

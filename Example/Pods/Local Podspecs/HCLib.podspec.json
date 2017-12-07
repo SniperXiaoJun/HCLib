@@ -36,9 +36,9 @@
     ],
     "ZBarSDK": [
 
-    ],
-    "objective-zip": [
-      "~> 1.0.5"
     ]
+  },
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "${PODS_ROOT}"
   }
 }

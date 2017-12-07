@@ -9,6 +9,7 @@
 #import "JRSettingController.h"
 #import "JRChangeTransactionPasswordViewController.h"
 #import "JRForgetTransactionPasswordViewController.h"
+#import "JRPluginUtil.h"
 
 @interface JRSettingController ()
 

@@ -175,14 +175,12 @@
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/HCLib/HCLib.framework",
 				"${BUILT_PRODUCTS_DIR}/ZBarSDK/ZBarSDK.framework",
-				"${BUILT_PRODUCTS_DIR}/objective-zip/objective_zip.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HCLib.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZBarSDK.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/objective_zip.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -259,6 +257,7 @@
 /* Begin XCBuildConfiguration section */
 		77C15D721FD6E2B500B96D83 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1612D5FEC3C1DE3778EDD44 /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -314,6 +313,7 @@
 		};
 		77C15D731FD6E2B500B96D83 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15B855B91F218C3448B41A67 /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -372,11 +372,24 @@
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-framework",
+					"\"CocoaAsyncSocket\"",
+					"-framework",
+					"\"HCLib\"",
+					"-framework",
+					"\"ZBarSDK\"",
+					"-framework",
+					"\"objective_zip\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.easyhome.finance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "48e34e59-5e65-4781-9bf5-45c26c441453";
 				PROVISIONING_PROFILE_SPECIFIER = "JRJR-developer-iPhone";
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "\"$(PODS_ROOT)\"/** ${SRCROOT} ";
 			};
 			name = Debug;
 		};
@@ -391,11 +404,24 @@
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-framework",
+					"\"CocoaAsyncSocket\"",
+					"-framework",
+					"\"HCLib\"",
+					"-framework",
+					"\"ZBarSDK\"",
+					"-framework",
+					"\"objective_zip\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.easyhome.finance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "48e34e59-5e65-4781-9bf5-45c26c441453";
 				PROVISIONING_PROFILE_SPECIFIER = "JRJR-developer-iPhone";
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "\"$(PODS_ROOT)\"/** ${SRCROOT} ";
 			};
 			name = Release;
 		};

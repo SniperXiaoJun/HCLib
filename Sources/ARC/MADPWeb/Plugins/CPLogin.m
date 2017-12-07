@@ -8,7 +8,7 @@
 
 #import "CPLogin.h"
 #import "CPUtility.h"
-//#import "LoginViewController.h"
+#import "JRPluginUtil.h"
 
 @implementation CPLogin
 - (void)isLogin{

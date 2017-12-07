@@ -8,6 +8,8 @@
 
 #import "CPPassword.h"
 #import "JRAlertPassWord.h"
+
+
 @implementation CPPassword
 -(void)showTrsPassword{
     NSLog(@"%@",self.curData);//VX 传过来的参数

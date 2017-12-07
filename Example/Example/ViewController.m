@@ -8,7 +8,10 @@
 
 #import "ViewController.h"
 
-//#import </Users/hechong/Documents/设计家Plugin/Sources/ARC/JRPLugin.h>
+
+//#import <HCLib/JRPLugin.h>
+
+#import "ioapi.h"
 
 @interface ViewController ()
 

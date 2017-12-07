@@ -8,6 +8,8 @@
 
 #import "JRConsumeResultViewController.h"
 #import "JRJumpTool.h"
+#import "JRJumpClientToVx.h"
+
 @interface JRConsumeResultViewController ()
 {
 

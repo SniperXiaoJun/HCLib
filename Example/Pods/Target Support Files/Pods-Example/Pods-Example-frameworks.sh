@@ -105,13 +105,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/HCLib/HCLib.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ZBarSDK/ZBarSDK.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/objective-zip/objective_zip.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/HCLib/HCLib.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ZBarSDK/ZBarSDK.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/objective-zip/objective_zip.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

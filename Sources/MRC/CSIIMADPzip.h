@@ -54,9 +54,10 @@ extern "C" {
 #include "zlib.h"
 #endif
 
-#ifndef CSIIMADPcrc__ZLIBIOAPI_H
-#include "CSIIMADPioapi.h"
+#ifndef CSIIMADP__ZLIBIOAPI_H
+#include "ioapi.h"
 #endif
+
 
 #if defined(STRICTZIP) || defined(STRICTZIPUNZIP)
 /* like the STRICT of WIN32, we define a pointer that cannot be converted
@@ -131,10 +132,10 @@ extern zipFile ZEXPORT CSIIMADP_zipOpen OF((const char *pathname, int append));
    Of couse, you can use RAW reading and writing to copy the file you did not want delte
 */
 
-extern zipFile ZEXPORT CSIIMADP_zipOpen2 OF((const char *pathname,
+extern zipFile ZEXPORT zipOpen2 OF((const char *pathname,
                                    int append,
                                    zipcharpc* globalcomment,
-                                   CSIIMADP_zlib_filefunc_def* pzlib_filefunc_def));
+                                   zlib_filefunc_def* pzlib_filefunc_def));
 
 extern int ZEXPORT CSIIMADP_zipOpenNewFileInZip OF((zipFile file,
                        const char* filename,
@@ -231,5 +232,15 @@ extern int ZEXPORT CSIIMADP_zipClose OF((zipFile file,
 #ifdef __cplusplus
 }
 #endif
+
+#define CSIIMADP_ZREAD(filefunc,filestream,buf,size) ((*((filefunc).zread_file))((filefunc).opaque,filestream,buf,size))
+#define CSIIMADP_ZWRITE(filefunc,filestream,buf,size) ((*((filefunc).zwrite_file))((filefunc).opaque,filestream,buf,size))
+#define CSIIMADP_ZTELL(filefunc,filestream) ((*((filefunc).ztell_file))((filefunc).opaque,filestream))
+#define CSIIMADP_ZSEEK(filefunc,filestream,pos,mode) ((*((filefunc).zseek_file))((filefunc).opaque,filestream,pos,mode))
+#define CSIIMADP_ZCLOSE(filefunc,filestream) ((*((filefunc).zclose_file))((filefunc).opaque,filestream))
+#define CSIIMADP_ZERROR(filefunc,filestream) ((*((filefunc).zerror_file))((filefunc).opaque,filestream))
+
+
+
 
 #endif /* _zip_H */
