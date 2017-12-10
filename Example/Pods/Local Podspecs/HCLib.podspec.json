@@ -25,10 +25,11 @@
   "resources": "Sources/BundleFiles/**/*.bundle",
   "libraries": [
     "iconv",
-    "z",
-    "icucore",
+    "iconv.2.4.0",
     "stdc++",
-    "stdc++.6"
+    "z",
+    "sqlite3",
+    "c"
   ],
   "frameworks": [
     "UIKit",
@@ -41,6 +42,7 @@
     "QuartzCore"
   ],
   "xcconfig": {
-    "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/sqlite3"
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "DEFINES_MODULE": "YES"
   }
 }

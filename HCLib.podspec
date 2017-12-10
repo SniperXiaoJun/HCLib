@@ -23,10 +23,8 @@ spec.preserve_paths = "Sources/**/*.a"
 spec.vendored_libraries = "Sources/**/*.a"
 spec.resource = "Sources/BundleFiles/**/*.bundle"
 
-spec.libraries = 'iconv','iconv.2.4.0','stdc++','z','sqlite3'
+spec.libraries = 'iconv','iconv.2.4.0','stdc++','z','sqlite3','c'
 
-
-spec.libraries = "iconv", "z","icucore","stdc++",'stdc++.6'
 spec.framework    = 'UIKit','MobileCoreServices','CoreGraphics','Foundation','AVFoundation','CoreMedia','CoreVideo','QuartzCore'
 
 #spec.dependency 'CocoaAsyncSocket'
@@ -54,15 +52,21 @@ spec.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/**' }
 
 spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libiconv" }
 
+spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libiconv.2.4.0" }
+
 spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libstdc++" }
 
 spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libz" }
 
 spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/sqlite3" }
 
+spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/c" }
+
 #spec.xcconfig = { "ALWAYS_SEARCH_USER_PATHS" => "NO" }
 
 #spec.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2 $(PODS_ROOT)/HCLib/module' }
+
+spec.xcconfig = { "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES" => "YES","DEFINES_MODULE" =>"YES" }
 
 
 #spec.subspec "ZBarSDK" do |ss|

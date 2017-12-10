@@ -30,7 +30,11 @@
 # error "include zbar.h in your application, **not** zbar/Decoder.h"
 #endif
 
+#ifdef __cplusplus
 #include <string>
+#endif
+//#include <string>
+#include <string.h>
 
 namespace zbar {
 
