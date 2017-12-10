@@ -24,12 +24,9 @@ spec.resource = "Sources/BundleFiles/**/*.bundle"
 
 spec.libraries = 'iconv','iconv.2.4.0','stdc++','z','sqlite3'
 
-spec.ios.library = 'xml2'
-spec.libraries = 'xml2', 'z'
-
 
 spec.libraries = "iconv", "z","icucore","stdc++",'stdc++.6'
-spec.framework    = 'MobileCoreServices','CoreGraphics','Foundation','AVFoundation','CoreMedia','CoreVideo','QuartzCore'
+spec.framework    = 'UIKit','MobileCoreServices','CoreGraphics','Foundation','AVFoundation','CoreMedia','CoreVideo','QuartzCore'
 
 #spec.dependency 'CocoaAsyncSocket'
 #spec.dependency 'ZBarSDK'
@@ -38,10 +35,10 @@ spec.framework    = 'MobileCoreServices','CoreGraphics','Foundation','AVFoundati
 #spec.dependency 'Minizip', '~> 1.0.0'
 #spec.dependency 'HC-Objective-Zip', '~> 2.0'
 
-spec.xcconfig = { "OTHER_LDFLAGS" => "-ObjC",
-                 "GCC_WARN_UNUSED_FUNCTION" => "NO" }
+#spec.xcconfig = { "OTHER_LDFLAGS" => "-ObjC",
+#                 "GCC_WARN_UNUSED_FUNCTION" => "NO" }
 
-spec.xcconfig = { "ENABLE_BITCODE" => "NO"}
+#spec.xcconfig = { "ENABLE_BITCODE" => "NO"}
 
 spec.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/xxx/xxx"' }
 
@@ -60,6 +57,8 @@ spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libstdc++" }
 spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libz" }
 
 spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/sqlite3" }
+
+#spec.xcconfig = { "ALWAYS_SEARCH_USER_PATHS" => "NO" }
 
 end
 

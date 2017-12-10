@@ -6,8 +6,8 @@
 //  Copyright © 2017年 HeChong. All rights reserved.
 //
 
-
-#ifdef  __OBJC__
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
 
 #import "JRGlobalVariable.h"
 #import "UIImageView+NickWebCache.h"
@@ -46,5 +46,13 @@
 #import "NickMJRefresh.h"
 #import "JRPluginUtil.h"
 
+#else
+#ifndef FOUNDATION_EXPORT
+#if defined(__cplusplus)
+#define FOUNDATION_EXPORT extern "C"
+#else
+#define FOUNDATION_EXPORT extern
+#endif
+#endif
 #endif
 

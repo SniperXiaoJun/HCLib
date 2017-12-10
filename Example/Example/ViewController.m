@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "JRPLugin.h"
+//#import "JRPLugin.h"
 
 //#import <HCLib/JRPLugin.h>
 
@@ -24,11 +24,11 @@
 
     self.view.backgroundColor = [UIColor whiteColor];
 
-     JRPLugin *plugin = [JRPLugin shareInstance];
-    [JRPLugin ToJRPluginWithEntranceInfo:[NSDictionary dictionary] loginBlock:^(NSDictionary *dict) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"X-Token回调函数" message:@"这里是设计家回调函数" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-        [alert show];
-    }];
+//     JRPLugin *plugin = [JRPLugin shareInstance];
+//    [JRPLugin ToJRPluginWithEntranceInfo:[NSDictionary dictionary] loginBlock:^(NSDictionary *dict) {
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"X-Token回调函数" message:@"这里是设计家回调函数" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+//        [alert show];
+//    }];
 
 
     /*
