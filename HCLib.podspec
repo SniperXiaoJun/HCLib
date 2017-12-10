@@ -18,6 +18,7 @@ spec.requires_arc = 'Sources/ARC/**/*.{h,m,mm,c}'
 
 spec.prefix_header_file = 'Sources/ARC/GlobalFile/JRPLugin.pch'
 
+
 spec.preserve_paths = "Sources/**/*.a"
 spec.vendored_libraries = "Sources/**/*.a"
 spec.resource = "Sources/BundleFiles/**/*.bundle"
@@ -61,11 +62,13 @@ spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/sqlite3" }
 
 #spec.xcconfig = { "ALWAYS_SEARCH_USER_PATHS" => "NO" }
 
+#spec.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2 $(PODS_ROOT)/HCLib/module' }
 
-spec.subspec "ZBarSDK" do |ss|
-	ss.dependency 'ZBarSDK'
-    ss.xcconfig = { "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/ZBarSDK"}
-end
+
+#spec.subspec "ZBarSDK" do |ss|
+#	ss.dependency 'ZBarSDK'
+#    ss.xcconfig = { "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/ZBarSDK"}
+#end
 
 end
 

@@ -7,14 +7,9 @@
 		<key>HCLib.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<true/>
-		</dict>
-		<key>Pods-Example.xcscheme</key>
-		<dict>
-			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>ZBarSDK.xcscheme</key>
+		<key>Pods-Example.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

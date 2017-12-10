@@ -1,9 +1,5 @@
 PODS:
-  - HCLib (1.1):
-    - HCLib/ZBarSDK (= 1.1)
-  - HCLib/ZBarSDK (1.1):
-    - ZBarSDK
-  - ZBarSDK (1.3.1)
+  - HCLib (1.1)
 
 DEPENDENCIES:
   - HCLib (from `../`)
@@ -13,9 +9,8 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  HCLib: f056082e70d288c907de1ac8ced982c460f89774
-  ZBarSDK: 4c1b5daeb7d6cc67dc9355e690af0230a661f6ec
+  HCLib: 925e8c7c8d28c149e31716af97767b6e3ecd0443
 
-PODFILE CHECKSUM: dffd90f1a9ce56e4616f639ab7db98a1b7fdebb0
+PODFILE CHECKSUM: 44de3764f1f82131806d6be09e5b8628cb6fc55f
 
 COCOAPODS: 1.3.1
