@@ -52,6 +52,9 @@
 
     DebugLog(@"%f",ScreenWidth/DeviceWidth);
 
+//    #define JRBundeImage(imgName)
+
+    
 
 }
 

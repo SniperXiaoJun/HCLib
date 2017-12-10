@@ -29,6 +29,19 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"X-Token回调函数" message:@"这里是设计家回调函数" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
         [alert show];
     }];
+
+
+    /*
+     [UIImage imageNamed:imgName inbundle:@"JRBundle.bundle" withPath:@""]
+
+     NSString *const NickMJRefreshBundleName = @"NickMJRefresh.bundle";
+
+     #define NickMJRefreshSrcName(file) [NickMJRefreshBundleName stringByAppendingPathComponent:file]
+
+
+     NickMJRefreshSrcName(@"arrow.png")
+     */
+
 }
 
 

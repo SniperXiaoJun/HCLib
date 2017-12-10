@@ -12,6 +12,8 @@
 
 + (instancetype)shareInstance;
 
++ (UIImage *)imageNamedFromMyBundle:(NSString *)name;
+
 //重新登录
 + (void)needReLogin;
 

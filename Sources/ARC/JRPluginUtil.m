@@ -10,6 +10,7 @@
 #import "UIBarButtonItem+JRExtension.h"
 #import "JRBindCardViewController.h"
 #import "JRUploadIdCardViewController.h"
+#import "NSBundle+JRPlugin.h"
 
 @implementation JRPluginUtil
 
@@ -20,6 +21,19 @@
         instances = [[JRPluginUtil alloc] init];
     });
     return instances;
+}
+
++ (UIImage *)imageNamedFromMyBundle:(NSString *)name {
+    NSBundle *imageBundle = [NSBundle jr_imagePickerBundle];
+    name = [name stringByAppendingString:@"@2x"];
+    NSString *imagePath = [imageBundle pathForResource:name ofType:@"png"];
+    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
+    if (!image) {
+        // 兼容业务方自己设置图片的方式
+        name = [name stringByReplacingOccurrencesOfString:@"@2x" withString:@""];
+        image = [UIImage imageNamed:name];
+    }
+    return image;
 }
 
 

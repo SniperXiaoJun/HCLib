@@ -20,7 +20,7 @@ spec.prefix_header_file = 'Sources/ARC/GlobalFile/JRPLugin.pch'
 
 spec.preserve_paths = "Sources/**/*.a"
 spec.vendored_libraries = "Sources/**/*.a"
-spec.resource = "BundleFiles/**/*.bundle"
+spec.resource = "Sources/BundleFiles/**/*.bundle"
 
 spec.libraries = 'iconv','iconv.2.4.0','stdc++','z','sqlite3'
 

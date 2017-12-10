@@ -12,6 +12,7 @@
 
 #import "JRRootTableViewController.h"
 #import "JRRootViewController.h"
+#import "NSBundle+JRPlugin.h"
 #import "JRAllSuccessViewController.h"
 #import "JRSYImagePickerViewController.h"
 #import "JRCNScrollView.h"

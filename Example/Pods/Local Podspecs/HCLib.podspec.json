@@ -22,7 +22,7 @@
   "prefix_header_file": "Sources/ARC/GlobalFile/JRPLugin.pch",
   "preserve_paths": "Sources/**/*.a",
   "vendored_libraries": "Sources/**/*.a",
-  "resources": "BundleFiles/**/*.bundle",
+  "resources": "Sources/BundleFiles/**/*.bundle",
   "libraries": [
     "iconv",
     "z",

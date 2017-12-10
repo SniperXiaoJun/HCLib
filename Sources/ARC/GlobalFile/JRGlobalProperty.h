@@ -33,7 +33,8 @@
 #define DeviceBoldFont(font) [UIFont boldSystemFontOfSize:(font)*(DeviceScaleX>1?DeviceScaleX*0.94:(DeviceScaleX==1?DeviceScaleX:DeviceScaleX*1))]
 
 
-#define JRBundeImage(imgName) [UIImage imageNamed:imgName inbundle:@"JRBundle.bundle" withPath:@""]
+//#define JRBundeImage(imgName) [UIImage imageNamed:imgName inbundle:@"JRBundle.bundle" withPath:@""]
+#define JRBundeImage(imgName) [JRPluginUtil imageNamedFromMyBundle:imgName]
 
 #define DeviceTextNormalColor RGB_COLOR(34,34,34)
 
