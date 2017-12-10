@@ -42,5 +42,18 @@
   ],
   "xcconfig": {
     "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/sqlite3"
-  }
+  },
+  "subspecs": [
+    {
+      "name": "ZBarSDK",
+      "dependencies": {
+        "ZBarSDK": [
+
+        ]
+      },
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(PODS_ROOT)/ZBarSDK"
+      }
+    }
+  ]
 }

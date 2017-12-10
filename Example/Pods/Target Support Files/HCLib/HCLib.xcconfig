@@ -1,8 +1,9 @@
 CONFIGURATION_BUILD_DIR = $PODS_CONFIGURATION_BUILD_DIR/HCLib
+FRAMEWORK_SEARCH_PATHS = $(inherited) $(PODS_ROOT)/ZBarSDK "$PODS_CONFIGURATION_BUILD_DIR/ZBarSDK"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Public" $(SDKROOT)/usr/include/sqlite3
-LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../../Sources/ARC/MADPWeb/CPQRFunction/Libraries/ZBar/ZBarSDK/ZBarSDK" "${PODS_ROOT}/../../Sources/ARC/Main/Libs/CFCAPDF" "${PODS_ROOT}/../../Sources/ARC/Main/Libs/iSecurity/lib" "${PODS_ROOT}/../../Sources/ARC/Main/Libs/LibAES"
-OTHER_LDFLAGS = -l"MLog_4003" -l"PowerEnterEHO" -l"TrustSignPDFDS" -l"aes" -l"crypto_1001e_0003_n" -l"iconv" -l"icucore" -l"smkernel_4007_n" -l"stdc++" -l"stdc++.6" -l"z" -l"zbar" -framework "AVFoundation" -framework "CoreGraphics" -framework "CoreMedia" -framework "CoreVideo" -framework "Foundation" -framework "MobileCoreServices" -framework "QuartzCore" -framework "UIKit"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../../Sources/ARC/Main/Libs/CFCAPDF" "${PODS_ROOT}/../../Sources/ARC/Main/Libs/iSecurity/lib" "${PODS_ROOT}/../../Sources/ARC/Main/Libs/LibAES"
+OTHER_LDFLAGS = -l"MLog_4003" -l"PowerEnterEHO" -l"TrustSignPDFDS" -l"aes" -l"crypto_1001e_0003_n" -l"iconv" -l"icucore" -l"smkernel_4007_n" -l"stdc++" -l"stdc++.6" -l"z" -framework "AVFoundation" -framework "CoreGraphics" -framework "CoreMedia" -framework "CoreVideo" -framework "Foundation" -framework "MobileCoreServices" -framework "QuartzCore" -framework "UIKit"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_ROOT = ${SRCROOT}

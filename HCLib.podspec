@@ -35,6 +35,7 @@ spec.framework    = 'UIKit','MobileCoreServices','CoreGraphics','Foundation','AV
 #spec.dependency 'Minizip', '~> 1.0.0'
 #spec.dependency 'HC-Objective-Zip', '~> 2.0'
 
+
 #spec.xcconfig = { "OTHER_LDFLAGS" => "-ObjC",
 #                 "GCC_WARN_UNUSED_FUNCTION" => "NO" }
 
@@ -59,6 +60,12 @@ spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libz" }
 spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/sqlite3" }
 
 #spec.xcconfig = { "ALWAYS_SEARCH_USER_PATHS" => "NO" }
+
+
+spec.subspec "ZBarSDK" do |ss|
+	ss.dependency 'ZBarSDK'
+    ss.xcconfig = { "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/ZBarSDK"}
+end
 
 end
 

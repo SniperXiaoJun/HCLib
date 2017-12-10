@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E2B36BB244C8A7682BC3D75AE36FEE42"
+               BlueprintIdentifier = "99DDF5231EB68EA6EF679F7C54B7EF97"
                BuildableName = "HCLib.framework"
                BlueprintName = "HCLib"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E2B36BB244C8A7682BC3D75AE36FEE42"
+            BlueprintIdentifier = "99DDF5231EB68EA6EF679F7C54B7EF97"
             BuildableName = "HCLib.framework"
             BlueprintName = "HCLib"
             ReferencedContainer = "container:Pods.xcodeproj">
