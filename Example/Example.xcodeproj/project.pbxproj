@@ -172,15 +172,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/HCLib/HCLib.framework",
-				"${BUILT_PRODUCTS_DIR}/ZBarSDK/ZBarSDK.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HCLib.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZBarSDK.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -375,21 +371,13 @@
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
-					"-framework",
-					"\"CocoaAsyncSocket\"",
-					"-framework",
-					"\"HCLib\"",
-					"-framework",
-					"\"ZBarSDK\"",
-					"-framework",
-					"\"objective_zip\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.easyhome.finance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "48e34e59-5e65-4781-9bf5-45c26c441453";
 				PROVISIONING_PROFILE_SPECIFIER = "JRJR-developer-iPhone";
 				TARGETED_DEVICE_FAMILY = 1;
-				USER_HEADER_SEARCH_PATHS = "\"$(PODS_ROOT)\"/** ${SRCROOT} ";
+				USER_HEADER_SEARCH_PATHS = "\"$(PODS_ROOT)\"/** ${SRCROOT}";
 			};
 			name = Debug;
 		};
@@ -407,21 +395,13 @@
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
-					"-framework",
-					"\"CocoaAsyncSocket\"",
-					"-framework",
-					"\"HCLib\"",
-					"-framework",
-					"\"ZBarSDK\"",
-					"-framework",
-					"\"objective_zip\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.easyhome.finance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "48e34e59-5e65-4781-9bf5-45c26c441453";
 				PROVISIONING_PROFILE_SPECIFIER = "JRJR-developer-iPhone";
 				TARGETED_DEVICE_FAMILY = 1;
-				USER_HEADER_SEARCH_PATHS = "\"$(PODS_ROOT)\"/** ${SRCROOT} ";
+				USER_HEADER_SEARCH_PATHS = "\"$(PODS_ROOT)\"/** ${SRCROOT}";
 			};
 			name = Release;
 		};

@@ -169,7 +169,8 @@
 + (BOOL)checkApplyConsumeNoAlert {
     if ([Singleton.consumeInfoDict[@"applyInfo"][@"applyStatus"] isEqualToString:@"SQZT_NULL"]||
         [Singleton.consumeInfoDict[@"applyInfo"][@"applyStatus"] isEqualToString:@""] ||
-        [Singleton.consumeInfoDict[@"applyInfo"][@"applyStatus"] isEqualToString:@"SQZT_SQ"]){
+        [Singleton.consumeInfoDict[@"applyInfo"][@"applyStatus"] isEqualToString:@"SQZT_SQ"]||
+        [Singleton.consumeInfoDict[@"applyInfo"][@"applyStatus"] isEqualToString:@"SQZT_YGD"]){
         return NO;
 
     }else{

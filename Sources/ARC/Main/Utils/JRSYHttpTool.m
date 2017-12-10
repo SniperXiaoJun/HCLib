@@ -9,7 +9,6 @@
 #import "JRSYHttpTool.h"
 #import "SYAFNetworking.h"
 #import "SYAFHTTPRequestOperationManager.h"
-#import "JRPluginUtil.h"
 
 @implementation JRSYHttpTool
     

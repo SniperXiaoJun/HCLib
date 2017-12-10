@@ -6,7 +6,7 @@
 //  Copyright © 2016年 CFCA. All rights reserved.
 //
 #import "JRSYPDFViewController.h"
-#import "SYAFURLConnectionOperation.h"
+
 #import "TrustSignPDFDS.h"
 
 
@@ -150,10 +150,16 @@
 
 - (void)backButtonAction
 {
+
+    self.pdfCallBackBlock(@"a");
+    [self.navigationController popViewControllerAnimated:YES];
+    return;
+    /*
     if (sign == 0)
     {
         self.pdfCallBackBlock(@"a");
         [self.navigationController popViewControllerAnimated:YES];
+
     }
     else
     {
@@ -161,6 +167,7 @@
         [self.navigationController popToRootViewControllerAnimated:YES];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"DaiKuanRefresh" object:nil];
     }
+     */
 }
 
 - (void)viewDidAppear:(BOOL)animated

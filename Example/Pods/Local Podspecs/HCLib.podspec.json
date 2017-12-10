@@ -18,27 +18,31 @@
     "ios": "8.0"
   },
   "source_files": "Sources/**/*.{h,m,mm,c}",
-  "requires_arc": "Sources/ARC/**/*.{m,mm,c}",
+  "requires_arc": "Sources/ARC/**/*.{h,m,mm,c}",
   "prefix_header_file": "Sources/ARC/GlobalFile/JRPLugin.pch",
-  "preserve_paths": "Sources/Lib/*.a",
-  "vendored_libraries": "Sources/Lib/*.a",
-  "resources": "BundleFiles/*.bundle",
+  "preserve_paths": "Sources/**/*.a",
+  "vendored_libraries": "Sources/**/*.a",
+  "resources": "BundleFiles/**/*.bundle",
   "libraries": [
-    "iconv.2.4.0",
-    "stdc++",
+    "iconv",
     "z",
-    "sqlite3"
+    "icucore",
+    "stdc++",
+    "stdc++.6"
   ],
-  "frameworks": "MobileCoreServices",
-  "dependencies": {
-    "CocoaAsyncSocket": [
-
-    ],
-    "ZBarSDK": [
-
-    ]
+  "ios": {
+    "libraries": "xml2"
   },
+  "frameworks": [
+    "MobileCoreServices",
+    "CoreGraphics",
+    "Foundation",
+    "AVFoundation",
+    "CoreMedia",
+    "CoreVideo",
+    "QuartzCore"
+  ],
   "xcconfig": {
-    "HEADER_SEARCH_PATHS": "${PODS_ROOT}"
+    "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/sqlite3"
   }
 }

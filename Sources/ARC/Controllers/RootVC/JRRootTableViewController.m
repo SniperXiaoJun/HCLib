@@ -26,6 +26,7 @@
     //左边的barButtonItem
     UIImage *image_url = JRBundeImage(@"back_60_60");
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemTarget:self action:@selector(back) image:image_url highlightedImage:image_url];
+
 }
 
 

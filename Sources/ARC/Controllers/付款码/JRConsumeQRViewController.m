@@ -12,7 +12,6 @@
 #import "JRAlertPassWord.h"
 #import "CPNotifyClient.h"
 #import "UIImage+JRQRCode.h"
-#import <CocoaAsyncSocket/GCDAsyncSocket.h>
 #define IMAGE(Str) [UIImage imageNamed:Str]
 
 

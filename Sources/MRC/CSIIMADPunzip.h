@@ -54,8 +54,7 @@ extern "C" {
 #endif
 
 #ifndef CSIIMADPcrc__ZLIBIOAPI_H
-//#include "CSIIMADPioapi.h"
-
+#include "CSIIMADPioapi.h"
 #endif
 
 #if defined(STRICTUNZIP) || defined(STRICTZIPUNZIP)
@@ -145,7 +144,7 @@ extern unzFile ZEXPORT CSIIMADP_unzOpen OF((const char *path));
 */
 
 extern unzFile ZEXPORT CSIIMADP_unzOpen2 OF((const char *path,
-                                    zlib_filefunc_def* pzlib_filefunc_def));
+                                    CSIIMADP_zlib_filefunc_def* pzlib_filefunc_def));
 /*
    Open a Zip file, like unzOpen, but provide a set of file low level API
       for read/write the zip file (see ioapi.h)
@@ -351,13 +350,5 @@ extern int ZEXPORT CSIIMADP_unzSetOffset (unzFile file, uLong pos);
 #ifdef __cplusplus
 }
 #endif
-
-#define CSIIMADP_ZREAD(filefunc,filestream,buf,size) ((*((filefunc).zread_file))((filefunc).opaque,filestream,buf,size))
-#define CSIIMADP_ZWRITE(filefunc,filestream,buf,size) ((*((filefunc).zwrite_file))((filefunc).opaque,filestream,buf,size))
-#define CSIIMADP_ZTELL(filefunc,filestream) ((*((filefunc).ztell_file))((filefunc).opaque,filestream))
-#define CSIIMADP_ZSEEK(filefunc,filestream,pos,mode) ((*((filefunc).zseek_file))((filefunc).opaque,filestream,pos,mode))
-#define CSIIMADP_ZCLOSE(filefunc,filestream) ((*((filefunc).zclose_file))((filefunc).opaque,filestream))
-#define CSIIMADP_ZERROR(filefunc,filestream) ((*((filefunc).zerror_file))((filefunc).opaque,filestream))
-
 
 #endif /* CSIIMADP__unz_H */

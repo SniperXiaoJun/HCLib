@@ -39,7 +39,7 @@
  *entrance  插件入口    NOT NULL    20    点击钱包跳转/账户余额：QBTZ   点击额度跳转：EDTZ
  *
  */
-- (void)ToJRPluginWithEntranceInfo:(NSDictionary *)info loginBlock:(void(^)(NSDictionary *dict))loginBlock;
++ (void)ToJRPluginWithEntranceInfo:(NSDictionary *)info loginBlock:(void(^)(NSDictionary *dict))loginBlock;
 
 
 /*分期支付入口
@@ -60,31 +60,19 @@
  *
  *返回参数：orderBlock 订单回调函数
  */
-- (NSDictionary *)ToJRStagePayOrderInfo:(NSDictionary *)orderInfo orderBlock:(void(^)(NSDictionary *dict))orderBlock;
++ (NSDictionary *)ToJRStagePayOrderInfo:(NSDictionary *)orderInfo orderBlock:(void(^)(NSDictionary *dict))orderBlock;
 
 /************************************************************************************/
 
 
 
-//废弃代码
-- (void)testSYHttpRequest;
-
-- (void)testSqlite3;
-
-- (void)testDownLoadZip;
-
-- (void)testUploadImage;
-
-- (void)downLoadPdfFile:(NSString *)urlStr isSign:(NSInteger)issign;
-
-- (void)gotoQRCode;
-
 - (UITextField *)getPwdTextField;
 
 - (void)loginAction:(UITextField *)passwordTextField mobilePhone:(NSString *)phone loginBlock:(void(^)(NSDictionary *dict))loginBlock;
 
-- (void)gotoMyWallet;
 
 /******************************************************************************************************/
 
 @end
+
+

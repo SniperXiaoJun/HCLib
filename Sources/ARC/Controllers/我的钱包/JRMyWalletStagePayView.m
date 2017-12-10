@@ -10,9 +10,8 @@
 #import "JRStagePayAuthorizeController.h"
 #import "JRStagePayAdsController.h"
 #import "JRStagePayMenuController.h"
-#import "JRJumpClientToVx.h"
+
 #import "CSIIFormatUitli.h"
-#import "JRPluginUtil.h"
 
 #define DefaultFrame ScaleFrame(0, 0, DeviceWidth, 140)
 #define SectionThreeLogoFrame ScaleFrame(15, 15, 16, 16)
@@ -61,7 +60,7 @@
 
 
     //如果新发生已经激活判断是否是提额状态 如果是提额状态则发生类型为提额
-    if ([consumeState isEqualToString:@"SQZT_JH"]) {
+    if ([consumeState isEqualToString:@"SQZT_JH"] || [creditState isEqualToString:@"YSJHZT_01"]) {
         //提额状态
         raiseState = Singleton.consumeInfoDict[@"raiseInfo"][@"raiseStatus"];
         if ([raiseState isEqualToString:@"SQZT_SPZ"] ||
@@ -140,7 +139,7 @@
 
 
     //如果新发生已经激活判断是否是提额状态 如果是提额状态则发生类型为提额
-    if ([consumeState isEqualToString:@"SQZT_JH"]) {
+    if ([consumeState isEqualToString:@"SQZT_JH"] || [creditState isEqualToString:@"YSJHZT_01"]) {
         //提额状态
         raiseState = Singleton.consumeInfoDict[@"raiseInfo"][@"raiseStatus"];
         if ([raiseState isEqualToString:@"SQZT_SPZ"] ||
@@ -324,7 +323,6 @@
         //如果是预授信调额待激活
         if ([Singleton.consumeInfoDict[@"activeInfo"][@"activeStatus"] isEqualToString:@"SQZT_TG"]) {
             //还款区
-
             NSString *payMoneyCount = Singleton.consumeInfoDict[@"payAmount"];
             if (payMoneyCount.length==0) {
                 payMoneyCount = @"0.00";
@@ -332,25 +330,25 @@
 
             payMoneyCount = [CSIIFormatUitli splitByRmb:payMoneyCount];
 
-            UIView *payMoney = [[UIView alloc] initWithFrame:CGRectMake(0, 135*DeviceScaleX, ScreenWidth/3, 95*DeviceScaleX)];
+
+            UIView *payMoney = [[UIView alloc] initWithFrame:CGRectMake(0, 135*DeviceScaleX, ScreenWidth/2, 95*DeviceScaleX)];
             payMoney.userInteractionEnabled = YES;
             [cellView addSubview:payMoney];
 
             CSIILabelButton * payMoneyTitle = [[CSIILabelButton alloc] init];
             if ([payMoneyCount floatValue]>0.00) {
-                [payMoneyTitle  setImage:JRBundeImage(@"需还款角标icon") frame:ScaleFrame((ScreenWidth/3-35)/2+35, 145-136, 30, 10) forState:UIControlStateNormal];
+                [payMoneyTitle  setImage:JRBundeImage(@"需还款角标icon") frame:ScaleFrame(115, 145-136, 30, 10) forState:UIControlStateNormal];
             }
 
-            [payMoneyTitle setLabel:@"还款" frame:ScaleFrame((ScreenWidth/3-35)/2, 149-136, 35, 14)];
+            [payMoneyTitle setLabel:@"还款" frame:ScaleFrame(79, 149-136, 35, 14)];
             payMoneyTitle.label.font = DeviceFont(15);
             payMoneyTitle.label.textColor = RGB_COLOR(34,34,34);
             [payMoney addSubview:payMoneyTitle];
 
 
             //本月待还
-            UILabel *monthPayLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, (172-136)*DeviceScaleX, ScreenWidth/3, 12*DeviceScaleX)];
-
-            monthPayLabel.text = [NSString stringWithFormat:@"当期应还%@",[CSIIFormatUitli splitByRmb:payMoneyCount]];
+            UILabel *monthPayLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, (172-136)*DeviceScaleX, ScreenWidth/2, 12*DeviceScaleX)];
+            monthPayLabel.text = [NSString stringWithFormat:@"当期应还%@",payMoneyCount];
 
             monthPayLabel.textColor = RGB_COLOR(153,153,153);
             monthPayLabel.textAlignment = NSTextAlignmentCenter;
@@ -358,9 +356,8 @@
             monthPayLabel.font = DeviceFont(12);
             [payMoney addSubview:monthPayLabel];
 
-
             UIButton *payNowBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-            [payNowBtn setFrame:ScaleFrame((ScreenWidth/3-76)/2, 193-136, 76, 26)];
+            [payNowBtn setFrame:ScaleFrame(56, 193-136, 76, 26)];
             payNowBtn.layer.borderWidth = 1;
             payNowBtn.layer.cornerRadius = 3;
             payNowBtn.layer.masksToBounds = YES;
@@ -378,6 +375,7 @@
             lineLabel1.backgroundColor = RGB_COLOR(236,236,236);
             lineLabel1.alpha = 0.6;
             [payMoney addSubview:lineLabel1];
+/*
 
             //提额区
             UIView *raiseMoney = [[UIView alloc] initWithFrame:CGRectMake(ScreenWidth/3, 135*DeviceScaleX, ScreenWidth/3, 95*DeviceScaleX)];
@@ -450,11 +448,12 @@
             lineLabel2.backgroundColor = RGB_COLOR(236,236,236);
             lineLabel2.alpha = 0.6;
             [raiseMoney addSubview:lineLabel2];
-
+            */
             //调额区
-            UIView *activeMoney = [[UIView alloc] initWithFrame:CGRectMake(ScreenWidth/3*2, 135*DeviceScaleX, ScreenWidth/3, 95*DeviceScaleX)];
+            UIView *activeMoney = [[UIView alloc] initWithFrame:CGRectMake(ScreenWidth/2, 135*DeviceScaleX, ScreenWidth/2, 95*DeviceScaleX)];
             [cellView addSubview:activeMoney];
             CSIILabelButton * activeMoneyTitle = [[CSIILabelButton alloc] init];
+
 
             NSString *activeCornerLogoName=@"待激活角标icon";
             NSString *activeLimitLabelText = @"";
@@ -463,14 +462,14 @@
 
             activeLimitLabelText = [NSString stringWithFormat:@"已审批调额%@",[CSIIFormatUitli splitByRmb:activeLimitBusiAmt]];
 
-            [activeMoneyTitle  setImage:JRBundeImage(activeCornerLogoName) frame:ScaleFrame((ScreenWidth/3-35)/2+35, 145-136, 30, 10) forState:UIControlStateNormal];
-            [activeMoneyTitle setLabel:@"调额" frame:ScaleFrame((ScreenWidth/3-35)/2, 149-136, 35, 14)];
+            [activeMoneyTitle  setImage:JRBundeImage(activeCornerLogoName) frame:ScaleFrame(115, 145-136, 30, 10) forState:UIControlStateNormal];
+            [activeMoneyTitle setLabel:@"调额" frame:ScaleFrame(79, 149-136, 35, 14)];
             activeMoneyTitle.label.font = DeviceFont(15);
             activeMoneyTitle.label.textColor = RGB_COLOR(34,34,34);
             [activeMoney addSubview:activeMoneyTitle];
 
 
-            UILabel *activeLimitLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, (172-136)*DeviceScaleX, ScreenWidth/3, 12*DeviceScaleX)];
+            UILabel *activeLimitLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, (172-136)*DeviceScaleX, ScreenWidth/2, 12*DeviceScaleX)];
             activeLimitLabel.text = activeLimitLabelText;
             activeLimitLabel.textColor = RGB_COLOR(153,153,153);
             activeLimitLabel.textAlignment = NSTextAlignmentCenter;
@@ -479,7 +478,7 @@
             [activeMoney addSubview:activeLimitLabel];
 
             UIButton *activeApplyBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-            [activeApplyBtn setFrame:ScaleFrame((ScreenWidth/3-76)/2, 193-136, 76, 26)];
+            [activeApplyBtn setFrame:ScaleFrame(56, 193-136, 76, 26)];
             activeApplyBtn.layer.borderWidth = 1;
             activeApplyBtn.layer.cornerRadius = 3;
             activeApplyBtn.layer.masksToBounds = YES;
@@ -621,7 +620,7 @@
 
     //未申请
     if (([state isEqualToString:@""] || [state isEqualToString:@"SQZT_NULL"] || consumeState == nil)
-        || [state isEqualToString:@"SQZT_SQ"]) {
+        || [state isEqualToString:@"SQZT_SQ"]  || [state isEqualToString:@"SQZT_YGD"]) {
         CSIILabelButton * openStagePay = [[CSIILabelButton alloc] init];
         [openStagePay  setImage:JRBundeImage(@"开通箭头icon") frame:SectionThreeRightLogoFrame forState:UIControlStateNormal];
         [openStagePay setLabel:@"我要开通" frame:SectionThreeRightTitleFrame];
@@ -916,23 +915,23 @@
             payMoneyCount = [CSIIFormatUitli splitByRmb:payMoneyCount];
 
 
-            UIView *payMoney = [[UIView alloc] initWithFrame:CGRectMake(0, 135*DeviceScaleX, ScreenWidth/3, 95*DeviceScaleX)];
+            UIView *payMoney = [[UIView alloc] initWithFrame:CGRectMake(0, 135*DeviceScaleX, ScreenWidth/2, 95*DeviceScaleX)];
             payMoney.userInteractionEnabled = YES;
             [cellView addSubview:payMoney];
 
             CSIILabelButton * payMoneyTitle = [[CSIILabelButton alloc] init];
             if ([payMoneyCount floatValue]>0.00) {
-                [payMoneyTitle  setImage:JRBundeImage(@"需还款角标icon") frame:ScaleFrame((ScreenWidth/3-35)/2+35, 145-136, 30, 10) forState:UIControlStateNormal];
+                [payMoneyTitle  setImage:JRBundeImage(@"需还款角标icon") frame:ScaleFrame(115, 145-136, 30, 10) forState:UIControlStateNormal];
             }
 
-            [payMoneyTitle setLabel:@"还款" frame:ScaleFrame((ScreenWidth/3-35)/2, 149-136, 35, 14)];
+            [payMoneyTitle setLabel:@"还款" frame:ScaleFrame(79, 149-136, 35, 14)];
             payMoneyTitle.label.font = DeviceFont(15);
             payMoneyTitle.label.textColor = RGB_COLOR(34,34,34);
             [payMoney addSubview:payMoneyTitle];
 
 
             //本月待还
-            UILabel *monthPayLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, (172-136)*DeviceScaleX, ScreenWidth/3, 12*DeviceScaleX)];
+            UILabel *monthPayLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, (172-136)*DeviceScaleX, ScreenWidth/2, 12*DeviceScaleX)];
             monthPayLabel.text = [NSString stringWithFormat:@"当期应还%@",payMoneyCount];
 
             monthPayLabel.textColor = RGB_COLOR(153,153,153);
@@ -942,7 +941,7 @@
             [payMoney addSubview:monthPayLabel];
 
             UIButton *payNowBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-            [payNowBtn setFrame:ScaleFrame((ScreenWidth/3-76)/2, 193-136, 76, 26)];
+            [payNowBtn setFrame:ScaleFrame(56, 193-136, 76, 26)];
             payNowBtn.layer.borderWidth = 1;
             payNowBtn.layer.cornerRadius = 3;
             payNowBtn.layer.masksToBounds = YES;
@@ -955,11 +954,12 @@
 
 
 
+
             UILabel *lineLabel1 = [[UILabel alloc] initWithFrame:ScaleFrame(ScreenWidth/3-1, 112, DeviceLineWidth, 95*DeviceScaleX)];
             lineLabel1.backgroundColor = RGB_COLOR(236,236,236);
             lineLabel1.alpha = 0.6;
             [payMoney addSubview:lineLabel1];
-
+/*
             //提额区
             UIView *raiseMoney = [[UIView alloc] initWithFrame:CGRectMake(ScreenWidth/3, 135*DeviceScaleX, ScreenWidth/3, 95*DeviceScaleX)];
             [cellView addSubview:raiseMoney];
@@ -1031,9 +1031,9 @@
             lineLabel2.backgroundColor = RGB_COLOR(236,236,236);
             lineLabel2.alpha = 0.6;
             [raiseMoney addSubview:lineLabel2];
-
+*/
             //调额区
-            UIView *activeMoney = [[UIView alloc] initWithFrame:CGRectMake(ScreenWidth/3*2, 135*DeviceScaleX, ScreenWidth/3, 95*DeviceScaleX)];
+            UIView *activeMoney = [[UIView alloc] initWithFrame:CGRectMake(ScreenWidth/2, 135*DeviceScaleX, ScreenWidth/2, 95*DeviceScaleX)];
             [cellView addSubview:activeMoney];
             CSIILabelButton * activeMoneyTitle = [[CSIILabelButton alloc] init];
 
@@ -1045,14 +1045,14 @@
 
             activeLimitLabelText = [NSString stringWithFormat:@"已审批调额%@",[CSIIFormatUitli splitByRmb:activeLimitBusiAmt]];
 
-            [activeMoneyTitle  setImage:JRBundeImage(activeCornerLogoName) frame:ScaleFrame((ScreenWidth/3-35)/2+35, 145-136, 30, 10) forState:UIControlStateNormal];
-            [activeMoneyTitle setLabel:@"调额" frame:ScaleFrame((ScreenWidth/3-35)/2, 149-136, 35, 14)];
+            [activeMoneyTitle  setImage:JRBundeImage(activeCornerLogoName) frame:ScaleFrame(115, 145-136, 30, 10) forState:UIControlStateNormal];
+            [activeMoneyTitle setLabel:@"调额" frame:ScaleFrame(79, 149-136, 35, 14)];
             activeMoneyTitle.label.font = DeviceFont(15);
             activeMoneyTitle.label.textColor = RGB_COLOR(34,34,34);
             [activeMoney addSubview:activeMoneyTitle];
 
 
-            UILabel *activeLimitLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, (172-136)*DeviceScaleX, ScreenWidth/3, 12*DeviceScaleX)];
+            UILabel *activeLimitLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, (172-136)*DeviceScaleX, ScreenWidth/2, 12*DeviceScaleX)];
             activeLimitLabel.text = activeLimitLabelText;
             activeLimitLabel.textColor = RGB_COLOR(153,153,153);
             activeLimitLabel.textAlignment = NSTextAlignmentCenter;
@@ -1061,7 +1061,7 @@
             [activeMoney addSubview:activeLimitLabel];
 
             UIButton *activeApplyBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-            [activeApplyBtn setFrame:ScaleFrame((ScreenWidth/3-76)/2, 193-136, 76, 26)];
+            [activeApplyBtn setFrame:ScaleFrame(56, 193-136, 76, 26)];
             activeApplyBtn.layer.borderWidth = 1;
             activeApplyBtn.layer.cornerRadius = 3;
             activeApplyBtn.layer.masksToBounds = YES;
@@ -1200,7 +1200,10 @@
 - (void)uploadFile{
     DebugLog(@"补充资料");
     NSMutableDictionary *dict =  [NSMutableDictionary dictionary];
-    [dict setObject:Singleton.consumeInfoDict[@"applyNo"] forKey:@"applyNo"];
+
+    if (Singleton.consumeInfoDict[@"applyInfo"]>0) {
+        [dict setObject:Singleton.consumeInfoDict[@"applyNo"] forKey:@"applyNo"];
+    }
 
     [JRJumpClientToVx jumpWithZipID:Consume_upload controller:Singleton.rootViewController params:dict];
 }
@@ -1240,10 +1243,13 @@
     }else if ([sender.titleLabel.text isEqualToString:@"补充资料"]) {
 
         NSMutableDictionary *dict =  [NSMutableDictionary dictionary];
-        [dict setObject:Singleton.consumeInfoDict[@"applyNo"] forKey:@"applyNo"];
+
+        if ([Singleton.consumeInfoDict[@"raiseInfo"][@"raiseApplyNo"] length]>0) {
+            [dict setObject:Singleton.consumeInfoDict[@"raiseInfo"][@"raiseApplyNo"] forKey:@"applyNo"];
+        }
+
 
         [JRJumpClientToVx jumpWithZipID:Consume_upload controller:Singleton.rootViewController params:dict];
-
 
 
     }else if ([sender.titleLabel.text isEqualToString:@"激活提额"]) {

@@ -12,7 +12,7 @@
 #import <objc/runtime.h>
 #import "CPUIActivityIndicator.h"
 #import "CSIIConfigGlobalImport.h"
-#import "JRPluginUtil.h"
+
 
 // static long currentTime;
 @implementation CSIIBusinessTransaction

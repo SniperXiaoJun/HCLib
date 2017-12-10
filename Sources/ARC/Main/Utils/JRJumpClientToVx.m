@@ -8,7 +8,6 @@
 
 #import "JRJumpClientToVx.h"
 #import "JRJumpTool.h"
-#import "JRSYHttpTool.h"
 
 @implementation JRJumpClientToVx
 + (void)jumpWithZipID:(NSString *)zipID controller:(UIViewController *)controller{
@@ -29,7 +28,10 @@
         if (params)
         {
             NSMutableDictionary *currentDict = [NSMutableDictionary dictionaryWithDictionary:params];
-            [currentDict setObject:Singleton.consumeInfoDict[@"applyNo"] forKey:@"applyNo"];
+
+            if ([params[@"applyNo"] length]>0) {
+                [currentDict setObject:params[@"applyNo"] forKey:@"applyNo"];
+            }
 
             NSMutableDictionary *dictRemix = [NSMutableDictionary dictionaryWithDictionary:json];
 

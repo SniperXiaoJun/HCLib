@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Sources/ARC/JRPLugin.m"
-            timestampString = "534238031.934675"
+            timestampString = "534587712.381481"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "68"
             endingLineNumber = "68"
-            landmarkName = "JRPLugin"
-            landmarkType = "3">
+            landmarkName = "+initRoutable"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,13 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Sources/ARC/JRPLugin.m"
-            timestampString = "534238031.934748"
+            timestampString = "534587712.38159"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "123"
             endingLineNumber = "123"
-            landmarkName = "JRPLugin"
-            landmarkType = "3">
+            landmarkName = "+ToJRPluginWithEntranceInfo:loginBlock:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

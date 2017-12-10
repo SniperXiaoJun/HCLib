@@ -106,8 +106,7 @@
     [transactionDcit setObject:transactionArgumentStr forKey:@"Attribute"];
     [transactionDcit setObject:@"IOS" forKey:@"ChannelId"];
     [transactionDcit setObject:@"Y" forKey:@"IsEncrypt"];
-    
-    
+
     Log_TransactionInfo(
                         @"\nExecuteTransaction\nInterface     %@\nRequestData  ->->->->->\n%@",
                         url, transactionDcit);

@@ -30,13 +30,20 @@
 #import "CPCacheUtility.h"
 #import "CSIIDownLoadUtility.h"
 #import "JRUtils.h"
+//#import "JRUploadIdCardViewController.h"
 #import "CPImage.h"
-#import "JRJumpIntercept.h"
+//#import "JRSYImagePickerViewController.h"
+//#import "Register2ViewController.h"
+//#import "JRBindCardViewController.h"
 #import "JRConsumeResultViewController.h"
 #import "CPOpenPdf.h"
 #import "JRConsumeQRViewController.h"
-#import "JRJumpClientToVx.h"
-#import "JRPluginUtil.h"
+//#import "JRBindCardViewController.h"
+//#import "ChangeLoginPasswordViewController.h"
+//#import "JRChangeTransactionPasswordViewController.h"
+//#import "JRForgetTransactionPassword2ViewController.h"
+//#import "ForgetLoginPassword2ViewController.h"
+//#import "JRBindCardViewController.h"
 
 @implementation JRJumpTool
 
@@ -337,8 +344,8 @@
                     [dict setObject:[NSString stringWithFormat:@"%@%@",baseUrl,infoDict[@"AppUrl"]] forKey:@"AppUrl"];
                 }
 
-                if ([Singleton.consumeInfoDict[@"applyNo"] length]>0) {
-                    [dict setObject:Singleton.consumeInfoDict[@"applyNo"] forKey:@"applyNo"];
+                if ([infoDict[@"applyNo"] length]>0) {
+                    [dict setObject:infoDict[@"applyNo"] forKey:@"applyNo"];
                 }
 
                 
@@ -357,8 +364,8 @@
                 [dict setObject:infoDict[PartCellInfo]  forKey:PartCellInfo];
             }
             
-            if ([Singleton.consumeInfoDict[@"applyNo"] length]>0) {
-                [dict setObject:Singleton.consumeInfoDict[@"applyNo"] forKey:@"applyNo"];
+            if ([infoDict[@"applyNo"] length]>0) {
+                [dict setObject:infoDict[@"applyNo"] forKey:@"applyNo"];
             }
 
             

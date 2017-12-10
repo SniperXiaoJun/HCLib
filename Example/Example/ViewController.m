@@ -7,11 +7,10 @@
 //
 
 #import "ViewController.h"
-
+#import "JRPLugin.h"
 
 //#import <HCLib/JRPLugin.h>
 
-#import "ioapi.h"
 
 @interface ViewController ()
 
@@ -23,11 +22,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-//     JRPLugin *plugin = [JRPLugin shareInstance];
-//    [plugin ToJRPluginWithEntranceInfo:[NSDictionary dictionary] loginBlock:^(NSDictionary *dict) {
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"X-Token回调函数" message:@"这里是设计家回调函数" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-//        [alert show];
-//    }];
+    self.view.backgroundColor = [UIColor whiteColor];
+
+     JRPLugin *plugin = [JRPLugin shareInstance];
+    [JRPLugin ToJRPluginWithEntranceInfo:[NSDictionary dictionary] loginBlock:^(NSDictionary *dict) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"X-Token回调函数" message:@"这里是设计家回调函数" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alert show];
+    }];
 }
 
 

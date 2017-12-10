@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+//#import "MAJDelegate.h"
 
 typedef void (^MAJPluginResponseCallback)(BOOL states, id responseData);
 typedef void (^MAJPluginBHandler)(id data,
@@ -16,6 +17,7 @@ typedef void (^MAJPluginBHandler)(id data,
   id pluginData;
   id rigistPluginObject;
 }
+//@property(nonatomic, assign) id<MAJDelegate> majDelegate;
 @property(nonatomic, strong) id pluginData;
 @property(nonatomic, strong) id rigistPluginObject;
 @property(nonatomic, strong) MAJPluginResponseCallback pluginResponse;

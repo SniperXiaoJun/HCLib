@@ -15,7 +15,7 @@
 #import "JRSearchSupportBankViewController.h"
 #import "JRBankListView.h"
 #import "JRBankCardLimitController.h"
-#import "JRSYHttpTool.h"
+
 
 @interface JRBindCardViewController ()<UIAlertViewDelegate,UITextFieldDelegate,ChooseBankViewDelegate>
 {

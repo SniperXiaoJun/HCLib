@@ -8,8 +8,6 @@
 
 #import "JRMyWalletAccountView.h"
 #import "CSIIFormatUitli.h"
-#import "JRJumpClientToVx.h"
-#import "JRPluginUtil.h"
 
 #define SectionTwoHeaderFrame ScaleFrame(0, 0, DeviceWidth, 95)
 #define SectionTwoLogoFrame ScaleFrame(15, 16, 18, 18)

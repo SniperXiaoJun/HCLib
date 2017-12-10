@@ -34,6 +34,7 @@
 #import "UIView+JRExtension.h"
 #import "Routable.h"
 #import "JRUtils.h"
+//#import "CPCacheUtility.h"
 #import "JRPattern.h"
 #import "CPUIActivityIndicator.h"
 #import "JRGlobalUrlConfig.h"
@@ -43,7 +44,8 @@
 #import "CSIIConfigGlobalImport.h"
 
 #import "UIColor+JRHex.h"
-
+#import "JRJumpClientToVx.h"
+#import "JRJumpIntercept.h"
 #import "JRCheckAcNo.h"
 #import "LibAesSingle.h"
 #import "JRVXWebViewController.h"
@@ -55,9 +57,6 @@
 #import "CPMajorManager.h"
 #import "NickMJRefresh.h"
 #import "JRPluginUtil.h"
-#import "JRJumpClientToVx.h"
-#import "JRJumpIntercept.h"
-//#import "CPCacheUtility.h"
 
 #endif
 

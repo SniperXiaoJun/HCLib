@@ -13,8 +13,6 @@
 #import "JRBindCardViewController.h"
 #import "JRScanViewController.h"
 #import "JRPluginUtil.h"
-#import "JRJumpClientToVx.h"
-#import "JRConsumeQRViewController.h"
 
 //第一个section
 #define SectionOneFrame ScaleFrame(0, 0, DeviceWidth, 185 )

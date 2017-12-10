@@ -117,7 +117,7 @@ typedef struct
     uLong crc32_wait;           /* crc32 we must obtain after decompress all */
     uLong rest_read_compressed; /* number of byte to be decompressed */
     uLong rest_read_uncompressed;/*number of byte to be obtained after decomp*/
-    zlib_filefunc_def z_filefunc;
+    CSIIMADP_zlib_filefunc_def z_filefunc;
     voidpf filestream;        /* io structore of the zipfile */
     uLong compression_method;   /* compression method (0==store) */
     uLong byte_before_the_zipfile;/* byte before the zipfile, (>0 for sfx)*/
@@ -129,7 +129,7 @@ typedef struct
 */
 typedef struct
 {
-    zlib_filefunc_def z_filefunc;
+    CSIIMADP_zlib_filefunc_def z_filefunc;
     voidpf filestream;        /* io structore of the zipfile */
     CSIIMADP_unz_global_info gi;       /* public global information */
     uLong byte_before_the_zipfile;/* byte before the zipfile, (>0 for sfx)*/
@@ -166,12 +166,12 @@ typedef struct
 
 
 local int unzlocal_getByte OF((
-    const zlib_filefunc_def* pzlib_filefunc_def,
+    const CSIIMADP_zlib_filefunc_def* pzlib_filefunc_def,
     voidpf filestream,
     int *pi));
 
 local int unzlocal_getByte(pzlib_filefunc_def,filestream,pi)
-    const zlib_filefunc_def* pzlib_filefunc_def;
+    const CSIIMADP_zlib_filefunc_def* pzlib_filefunc_def;
     voidpf filestream;
     int *pi;
 {
@@ -196,12 +196,12 @@ local int unzlocal_getByte(pzlib_filefunc_def,filestream,pi)
    Reads a long in LSB order from the given gz_stream. Sets
 */
 local int unzlocal_getShort OF((
-    const zlib_filefunc_def* pzlib_filefunc_def,
+    const CSIIMADP_zlib_filefunc_def* pzlib_filefunc_def,
     voidpf filestream,
     uLong *pX));
 
 local int unzlocal_getShort (pzlib_filefunc_def,filestream,pX)
-    const zlib_filefunc_def* pzlib_filefunc_def;
+    const CSIIMADP_zlib_filefunc_def* pzlib_filefunc_def;
     voidpf filestream;
     uLong *pX;
 {
@@ -224,12 +224,12 @@ local int unzlocal_getShort (pzlib_filefunc_def,filestream,pX)
 }
 
 local int unzlocal_getLong OF((
-    const zlib_filefunc_def* pzlib_filefunc_def,
+    const CSIIMADP_zlib_filefunc_def* pzlib_filefunc_def,
     voidpf filestream,
     uLong *pX));
 
 local int unzlocal_getLong (pzlib_filefunc_def,filestream,pX)
-    const zlib_filefunc_def* pzlib_filefunc_def;
+    const CSIIMADP_zlib_filefunc_def* pzlib_filefunc_def;
     voidpf filestream;
     uLong *pX;
 {
@@ -327,11 +327,11 @@ extern int ZEXPORT unzStringFileNameCompare (fileName1,fileName2,iCaseSensitivit
     the global comment)
 */
 local uLong unzlocal_SearchCentralDir OF((
-    const zlib_filefunc_def* pzlib_filefunc_def,
+    const CSIIMADP_zlib_filefunc_def* pzlib_filefunc_def,
     voidpf filestream));
 
 local uLong unzlocal_SearchCentralDir(pzlib_filefunc_def,filestream)
-    const zlib_filefunc_def* pzlib_filefunc_def;
+    const CSIIMADP_zlib_filefunc_def* pzlib_filefunc_def;
     voidpf filestream;
 {
     unsigned char* buf;
@@ -340,7 +340,7 @@ local uLong unzlocal_SearchCentralDir(pzlib_filefunc_def,filestream)
     uLong uMaxBack=0xffff; /* maximum size of global comment */
     uLong uPosFound=0;
 
-    if (CSIIMADP_ZSEEK(*pzlib_filefunc_def,filestream,0,ZLIB_FILEFUNC_SEEK_END) != 0)
+    if (CSIIMADP_ZSEEK(*pzlib_filefunc_def,filestream,0,CSIIMADPcrc_ZLIB_FILEFUNC_CSIIMADP_SEEK_END) != 0)
         return 0;
 
 
@@ -366,7 +366,7 @@ local uLong unzlocal_SearchCentralDir(pzlib_filefunc_def,filestream)
 
         uReadSize = ((BUFREADCOMMENT+4) < (uSizeFile-uReadPos)) ?
                      (BUFREADCOMMENT+4) : (uSizeFile-uReadPos);
-        if (CSIIMADP_ZSEEK(*pzlib_filefunc_def,filestream,uReadPos,ZLIB_FILEFUNC_SEEK_SET)!=0)
+        if (CSIIMADP_ZSEEK(*pzlib_filefunc_def,filestream,uReadPos,CSIIMADPcrc_ZLIB_FILEFUNC_SEEK_SET)!=0)
             break;
 
         if (CSIIMADP_ZREAD(*pzlib_filefunc_def,filestream,buf,uReadSize)!=uReadSize)
@@ -398,7 +398,7 @@ local uLong unzlocal_SearchCentralDir(pzlib_filefunc_def,filestream)
 */
 extern unzFile ZEXPORT CSIIMADP_unzOpen2 (path, pzlib_filefunc_def)
     const char *path;
-    zlib_filefunc_def* pzlib_filefunc_def;
+    CSIIMADP_zlib_filefunc_def* pzlib_filefunc_def;
 {
     unz_s us;
     unz_s *s;
@@ -418,14 +418,14 @@ extern unzFile ZEXPORT CSIIMADP_unzOpen2 (path, pzlib_filefunc_def)
         return NULL;
 
     if (pzlib_filefunc_def==NULL)
-        fill_fopen_filefunc(&us.z_filefunc);
+        CSIIMADP_fill_fopen_filefunc(&us.z_filefunc);
     else
         us.z_filefunc = *pzlib_filefunc_def;
 
     us.filestream= (*(us.z_filefunc.zopen_file))(us.z_filefunc.opaque,
                                                  path,
-                                                 ZLIB_FILEFUNC_MODE_READ |
-                                                 ZLIB_FILEFUNC_MODE_EXISTING);
+                                                 CSIIMADPcrc_ZLIB_FILEFUNC_MODE_READ |
+                                                 CSIIMADPcrc_ZLIB_FILEFUNC_MODE_EXISTING);
     if (us.filestream==NULL)
         return NULL;
 
@@ -434,7 +434,7 @@ extern unzFile ZEXPORT CSIIMADP_unzOpen2 (path, pzlib_filefunc_def)
         err=CSIIMADP_UNZ_ERRNO;
 
     if (CSIIMADP_ZSEEK(us.z_filefunc, us.filestream,
-                                      central_pos,ZLIB_FILEFUNC_SEEK_SET)!=0)
+                                      central_pos,CSIIMADPcrc_ZLIB_FILEFUNC_SEEK_SET)!=0)
         err=CSIIMADP_UNZ_ERRNO;
 
     /* the signature, already checked */
@@ -604,7 +604,7 @@ local int unzlocal_GetCurrentFileInfoInternal (file,
     s=(unz_s*)file;
     if (CSIIMADP_ZSEEK(s->z_filefunc, s->filestream,
               s->pos_in_central_dir+s->byte_before_the_zipfile,
-              ZLIB_FILEFUNC_SEEK_SET)!=0)
+              CSIIMADPcrc_ZLIB_FILEFUNC_SEEK_SET)!=0)
         err=CSIIMADP_UNZ_ERRNO;
 
 
@@ -691,7 +691,7 @@ local int unzlocal_GetCurrentFileInfoInternal (file,
             uSizeRead = extraFieldBufferSize;
 
         if (lSeek!=0) {
-            if (CSIIMADP_ZSEEK(s->z_filefunc, s->filestream,lSeek,ZLIB_FILEFUNC_SEEK_CUR)==0)
+            if (CSIIMADP_ZSEEK(s->z_filefunc, s->filestream,lSeek,CSIIMADPcrc_ZLIB_FILEFUNC_CSIIMADP_SEEK_CUR)==0)
                 lSeek=0;
             else
                 err=CSIIMADP_UNZ_ERRNO;
@@ -717,7 +717,7 @@ local int unzlocal_GetCurrentFileInfoInternal (file,
             uSizeRead = commentBufferSize;
 
         if (lSeek!=0) {
-            if (CSIIMADP_ZSEEK(s->z_filefunc, s->filestream,lSeek,ZLIB_FILEFUNC_SEEK_CUR)==0)
+            if (CSIIMADP_ZSEEK(s->z_filefunc, s->filestream,lSeek,CSIIMADPcrc_ZLIB_FILEFUNC_CSIIMADP_SEEK_CUR)==0)
                 lSeek=0;
             else
                 err=CSIIMADP_UNZ_ERRNO;
@@ -977,7 +977,7 @@ local int unzlocal_CheckCurrentFileCoherencyHeader (s,piSizeVar,
     *psize_local_extrafield = 0;
 
     if (CSIIMADP_ZSEEK(s->z_filefunc, s->filestream,s->cur_file_info_internal.offset_curfile +
-                                s->byte_before_the_zipfile,ZLIB_FILEFUNC_SEEK_SET)!=0)
+                                s->byte_before_the_zipfile,CSIIMADPcrc_ZLIB_FILEFUNC_SEEK_SET)!=0)
         return CSIIMADP_UNZ_ERRNO;
 
 
@@ -1280,7 +1280,7 @@ extern int ZEXPORT CSIIMADP_unzReadCurrentFile  (file, buf, len)
                       pfile_in_zip_read_info->filestream,
                       pfile_in_zip_read_info->pos_in_zipfile +
                          pfile_in_zip_read_info->byte_before_the_zipfile,
-                         ZLIB_FILEFUNC_SEEK_SET)!=0)
+                         CSIIMADPcrc_ZLIB_FILEFUNC_SEEK_SET)!=0)
                 return CSIIMADP_UNZ_ERRNO;
             if (CSIIMADP_ZREAD(pfile_in_zip_read_info->z_filefunc,
                       pfile_in_zip_read_info->filestream,
@@ -1477,7 +1477,7 @@ extern int ZEXPORT CSIIMADP_unzGetLocalExtrafield (file,buf,len)
               pfile_in_zip_read_info->filestream,
               pfile_in_zip_read_info->offset_local_extrafield +
               pfile_in_zip_read_info->pos_local_extrafield,
-              ZLIB_FILEFUNC_SEEK_SET)!=0)
+              CSIIMADPcrc_ZLIB_FILEFUNC_SEEK_SET)!=0)
         return CSIIMADP_UNZ_ERRNO;
 
     if (CSIIMADP_ZREAD(pfile_in_zip_read_info->z_filefunc,
@@ -1551,7 +1551,7 @@ extern int ZEXPORT CSIIMADP_unzGetGlobalComment (file, szComment, uSizeBuf)
     if (uReadThis>s->gi.size_comment)
         uReadThis = s->gi.size_comment;
 
-    if (CSIIMADP_ZSEEK(s->z_filefunc,s->filestream,s->central_pos+22,ZLIB_FILEFUNC_SEEK_SET)!=0)
+    if (CSIIMADP_ZSEEK(s->z_filefunc,s->filestream,s->central_pos+22,CSIIMADPcrc_ZLIB_FILEFUNC_SEEK_SET)!=0)
         return CSIIMADP_UNZ_ERRNO;
 
     if (uReadThis>0)

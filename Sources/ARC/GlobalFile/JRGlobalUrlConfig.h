@@ -9,7 +9,6 @@
 #ifndef JRGlobalUrlConfig_h
 #define JRGlobalUrlConfig_h
 
-
 //#define CSIIEncrypt //如果定义了该参数则走参数加密流程  否则参数不加密
 
 //#define SERVER_IP   @"https://www.juranjinkong.com"      //  生产
@@ -18,9 +17,15 @@
 
 //#define GO_SERVER_IP @"http://115.182.212.146:8088"      //  SIT
 //#define SERVER_IP    @"http://115.182.212.146:8080"      //  SIT
-#define GO_SERVER_IP @"http://115.182.212.135:8088"        //  SIT
-#define SERVER_IP    @"http://115.182.212.135:8080"        //  SIT外网地址
-//#define SERVER_IP    @"http://172.17.7.40:8080"        //  张东胜本地
+//#define GO_SERVER_IP @"http://115.182.212.135:8088"        //  SIT
+//#define SERVER_IP    @"http://115.182.212.135:8080"        //  SIT外网地址
+
+
+#define GO_SERVER_IP @"http://115.182.212.135:8088"        //  设计家连调地址
+#define SERVER_IP    @"http://115.182.212.161:8080"        //  设计家连调地址
+
+
+
 
 //#define SERVER_IP    @"http://172.16.251.171:8080"  //SIT 内网地址
 
