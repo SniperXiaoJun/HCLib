@@ -30,11 +30,13 @@
 # error "include zbar.h in your application, **not** zbar/Decoder.h"
 #endif
 
-#ifdef __cplusplus
-#include <string>
-#endif
+//#ifdef __cplusplus
 //#include <string>
-#include <string.h>
+//#endif
+#include <string>
+//#include <string.h>
+
+//#ifdef __cplusplus
 
 namespace zbar {
 
@@ -202,5 +204,5 @@ class Decoder {
 };
 
 }
-
+//#endif
 #endif

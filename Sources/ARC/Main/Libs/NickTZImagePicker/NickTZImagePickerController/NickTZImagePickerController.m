@@ -265,13 +265,13 @@
 }
 
 - (void)configDefaultImageName {
-    self.takePictureImageName = @"takePicture";
-    self.photoSelImageName = @"photo_sel_photoPickerVc";
-    self.photoDefImageName = @"photo_def_photoPickerVc";
-    self.photoNumberIconImageName = @"photo_number_icon";
-    self.photoPreviewOriginDefImageName = @"preview_original_def";
-    self.photoOriginDefImageName = @"photo_original_def";
-    self.photoOriginSelImageName = @"photo_original_sel";
+    self.takePictureImageName = @"takePicturejr";
+    self.photoSelImageName = @"photo_sel_photoPickerVcjr";
+    self.photoDefImageName = @"photo_def_photoPickerVcjr";
+    self.photoNumberIconImageName = @"photo_number_iconjr";
+    self.photoPreviewOriginDefImageName = @"preview_original_defjr";
+    self.photoOriginDefImageName = @"photo_original_defjr";
+    self.photoOriginSelImageName = @"photo_original_seljr";
 }
 
 - (void)configDefaultBtnTitle {

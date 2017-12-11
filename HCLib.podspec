@@ -12,21 +12,24 @@ spec.source           = { :git => 'https://github.com/hexiaochong/HCLib.git'}
 spec.platform     = :ios, "8.0"
 
 spec.source_files = 'Sources/**/*.{h,m,mm,c}'
-
 spec.requires_arc = false
 spec.requires_arc = 'Sources/ARC/**/*.{h,m,mm,c}'
 
 spec.prefix_header_file = 'Sources/ARC/GlobalFile/JRPLugin.pch'
-
-
 spec.preserve_paths = "Sources/**/*.a"
-spec.vendored_libraries = "Sources/**/*.a"
+spec.ios.vendored_libraries = "Sources/**/*.a"
 spec.resource = "Sources/BundleFiles/**/*.bundle"
+#spec.header_dir = ""
 
 spec.libraries = 'iconv','iconv.2.4.0','stdc++','z','sqlite3','c'
 
-spec.framework    = 'UIKit','MobileCoreServices','CoreGraphics','Foundation','AVFoundation','CoreMedia','CoreVideo','QuartzCore'
 
+#spec.prefix_header_contents = '#import <UIKit/UIKit.h>', '#import <Foundation/Foundation.h>',
+#'# import <CoreFoundation/CoreFoundation.h>','# import <CoreGraphics/CoreGraphics.h>',
+#'# import <QuartzCore/QuartzCore.h>','# import <AVFoundation/AVFoundation.h>','# import <CoreMedia/CoreMedia.h>',
+#'# import <CoreVideo/CoreVideo.h>'
+
+spec.framework    = 'UIKit','MobileCoreServices','CoreGraphics','Foundation','AVFoundation','CoreMedia','CoreVideo','QuartzCore'
 #spec.dependency 'CocoaAsyncSocket'
 #spec.dependency 'ZBarSDK'
 #spec.dependency 'ZBarSDK-hicool', '~> 0.0.1'
@@ -40,7 +43,6 @@ spec.framework    = 'UIKit','MobileCoreServices','CoreGraphics','Foundation','AV
 
 #spec.xcconfig = { "ENABLE_BITCODE" => "NO"}
 
-spec.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/xxx/xxx"' }
 
 spec.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(SRCROOT)/**/**' }
 
@@ -64,15 +66,14 @@ spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/c" }
 
 #spec.xcconfig = { "ALWAYS_SEARCH_USER_PATHS" => "NO" }
 
-#spec.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2 $(PODS_ROOT)/HCLib/module' }
-
 spec.xcconfig = { "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES" => "YES","DEFINES_MODULE" =>"YES" }
 
 
-#spec.subspec "ZBarSDK" do |ss|
-#	ss.dependency 'ZBarSDK'
-#    ss.xcconfig = { "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/ZBarSDK"}
-#end
+spec.subspec 'vendorlibs' do |s|
+    s.ios.vendored_libraries = "Sources/**/*.a" #依赖了的.a文件
+    #s.ios.vendored_frameworks = "MyCustomLib/YoutuLibs/*.framework"
+end
+
 
 end
 

@@ -1,5 +1,7 @@
 PODS:
-  - HCLib (1.1)
+  - HCLib (1.1):
+    - HCLib/vendorlibs (= 1.1)
+  - HCLib/vendorlibs (1.1)
 
 DEPENDENCIES:
   - HCLib (from `../`)
@@ -9,7 +11,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  HCLib: c5d4127cfc3773391a7ece9e9459f853fdd609af
+  HCLib: 8beb9c19a073d2de097f6855c447c56636b40d92
 
 PODFILE CHECKSUM: 44de3764f1f82131806d6be09e5b8628cb6fc55f
 

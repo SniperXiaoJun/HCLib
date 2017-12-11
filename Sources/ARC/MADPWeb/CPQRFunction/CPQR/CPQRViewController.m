@@ -187,7 +187,7 @@
             _backButton.tag = i;
             [_backButton setImage:[UIImage imageWithContentsOfFile:
                                                [CPQRFuncitonBundle
-                                                   getFileWithName:@"back_info.png"]]
+                                                   getFileWithName:@"back_infojr.png"]]
                          forState:UIControlStateNormal];
             [_backButton addTarget:self action:@selector(toolbarItemsAction:) forControlEvents:UIControlEventTouchUpInside];
 
@@ -201,7 +201,7 @@
             [_captureButton addTarget:self action:@selector(toolbarItemsAction:) forControlEvents:UIControlEventTouchUpInside];
             [_captureButton setImage:[UIImage imageWithContentsOfFile:
                                                   [CPQRFuncitonBundle
-                                                      getFileWithName:@"picture_btn.png"]]
+                                                      getFileWithName:@"picture_btnjr.png"]]
                             forState:UIControlStateNormal];
             [_toolBarView addSubview:_captureButton];
 
@@ -212,11 +212,11 @@
             _lampButton.tag = i;
             [_lampButton setImage:[UIImage imageWithContentsOfFile:
                                                [CPQRFuncitonBundle
-                                                   getFileWithName:@"light_off.png"]]
+                                                   getFileWithName:@"light_offjr.png"]]
                          forState:UIControlStateNormal];
             [_lampButton setImage:[UIImage imageWithContentsOfFile:
                                                [CPQRFuncitonBundle
-                                                   getFileWithName:@"light_on.png"]]
+                                                   getFileWithName:@"light_onjr.png"]]
                          forState:UIControlStateSelected];
             [_lampButton addTarget:self action:@selector(toolbarItemsAction:) forControlEvents:UIControlEventTouchUpInside];
             [_toolBarView addSubview:_lampButton];
@@ -245,7 +245,7 @@
     self.scanLineView = [[UIImageView alloc]
         initWithImage:[UIImage imageWithContentsOfFile:
                                    [CPQRFuncitonBundle
-                                       getFileWithName:@"code_line.png"]]];
+                                       getFileWithName:@"code_linejr.png"]]];
     self.scanLineView.frame = CGRectMake(_codeRect.origin.x, _codeRect.origin.y,
         _codeRect.size.width, 2);
     [self.view addSubview:self.scanLineView];

@@ -21,7 +21,9 @@
   "requires_arc": "Sources/ARC/**/*.{h,m,mm,c}",
   "prefix_header_file": "Sources/ARC/GlobalFile/JRPLugin.pch",
   "preserve_paths": "Sources/**/*.a",
-  "vendored_libraries": "Sources/**/*.a",
+  "ios": {
+    "vendored_libraries": "Sources/**/*.a"
+  },
   "resources": "Sources/BundleFiles/**/*.bundle",
   "libraries": [
     "iconv",
@@ -44,5 +46,13 @@
   "xcconfig": {
     "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
     "DEFINES_MODULE": "YES"
-  }
+  },
+  "subspecs": [
+    {
+      "name": "vendorlibs",
+      "ios": {
+        "vendored_libraries": "Sources/**/*.a"
+      }
+    }
+  ]
 }

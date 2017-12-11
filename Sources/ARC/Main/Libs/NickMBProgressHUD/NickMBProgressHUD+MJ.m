@@ -38,12 +38,12 @@
 
 #pragma mark 显示错误信息
 + (void)showError:(NSString *)error toView:(UIView *)view{
-    [self show:error icon:@"error.png" view:view];
+    [self show:error icon:@"errorjr.png" view:view];
 }
 
 + (void)showSuccess:(NSString *)success toView:(UIView *)view
 {
-    [self show:success icon:@"success.png" view:view];
+    [self show:success icon:@"successjr.png" view:view];
 }
 
 #pragma mark 显示一些信息

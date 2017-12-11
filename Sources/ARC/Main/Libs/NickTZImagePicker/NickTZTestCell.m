@@ -25,7 +25,7 @@
         self.clipsToBounds = YES;
         
         _videoImageView = [[UIImageView alloc] init];
-        _videoImageView.image = [UIImage imageNamedFromMyBundle:@"MMVideoPreviewPlay"];
+        _videoImageView.image = [UIImage imageNamedFromMyBundle:@"MMVideoPreviewPlayjr"];
         _videoImageView.contentMode = UIViewContentModeScaleAspectFill;
         _videoImageView.hidden = YES;
         [self addSubview:_videoImageView];

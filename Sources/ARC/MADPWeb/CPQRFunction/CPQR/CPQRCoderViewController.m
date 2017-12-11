@@ -138,11 +138,11 @@
             self.codeRect.origin.y - 45, 35, 35);
         [lampButton setImage:[UIImage imageWithContentsOfFile:
                                           [CPQRFuncitonBundle
-                                              getFileWithName:@"light_off.png"]]
+                                              getFileWithName:@"light_offjr.png"]]
                     forState:UIControlStateNormal];
         [lampButton setImage:[UIImage imageWithContentsOfFile:
                                           [CPQRFuncitonBundle
-                                              getFileWithName:@"light_on.png"]]
+                                              getFileWithName:@"light_onjr.png"]]
                     forState:UIControlStateSelected];
         [lampButton addTarget:self
                        action:@selector(flashLightClick:)
@@ -192,7 +192,7 @@
     scanLineView = [[UIImageView alloc]
                     initWithImage:[UIImage imageWithContentsOfFile:
                                    [CPQRFuncitonBundle
-                                    getFileWithName:@"code_line.png"]]];
+                                    getFileWithName:@"code_linejr.png"]]];
     scanLineView.frame = CGRectMake(self.codeRect.origin.x, self.codeRect.origin.y,
         self.codeRect.size.width, 2);
     [self.view addSubview:scanLineView];
@@ -226,7 +226,7 @@
     [captureButton
         setImage:[UIImage
                      imageWithContentsOfFile:[CPQRFuncitonBundle
-                                                 getFileWithName:@"code_btn.png"]]
+                                                 getFileWithName:@"code_btnjr.png"]]
         forState:UIControlStateNormal];
     [captureButton addTarget:self
                       action:@selector(phoneImageButton)
