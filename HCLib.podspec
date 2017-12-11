@@ -21,7 +21,7 @@ spec.ios.vendored_libraries = "Sources/**/*.a"
 spec.resource = "Sources/BundleFiles/**/*.bundle"
 #spec.header_dir = ""
 
-spec.libraries = 'iconv','iconv.2.4.0','stdc++','z','sqlite3','c'
+spec.libraries = 'iconv','iconv.2.4.0','stdc++','z','sqlite3','c','c++'
 
 
 #spec.prefix_header_contents = '#import <UIKit/UIKit.h>', '#import <Foundation/Foundation.h>',
@@ -62,7 +62,12 @@ spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libz" }
 
 spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/sqlite3" }
 
-spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/c" }
+spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libc" }
+
+spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libc++" }
+
+#spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/**/*.h" }
+spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/string.h" }
 
 #spec.xcconfig = { "ALWAYS_SEARCH_USER_PATHS" => "NO" }
 

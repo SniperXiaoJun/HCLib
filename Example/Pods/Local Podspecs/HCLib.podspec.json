@@ -31,7 +31,8 @@
     "stdc++",
     "z",
     "sqlite3",
-    "c"
+    "c",
+    "c++"
   ],
   "frameworks": [
     "UIKit",
@@ -43,6 +44,11 @@
     "CoreVideo",
     "QuartzCore"
   ],
+  "dependencies": {
+    "ZBarSDK": [
+
+    ]
+  },
   "xcconfig": {
     "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
     "DEFINES_MODULE": "YES"

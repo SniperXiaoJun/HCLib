@@ -52,6 +52,7 @@
 #ifndef FOUNDATION_EXPORT
 #if defined(__cplusplus)
 #define FOUNDATION_EXPORT extern "C"
+#include <string.h>
 #else
 #define FOUNDATION_EXPORT extern
 #endif

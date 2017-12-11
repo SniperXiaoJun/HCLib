@@ -1,10 +1,11 @@
 CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES
 CONFIGURATION_BUILD_DIR = $PODS_CONFIGURATION_BUILD_DIR/HCLib
 DEFINES_MODULE = YES
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/ZBarSDK"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Public"
-LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../../Sources/ARC/MADPWeb/CPQRFunction/Libraries/ZBar/ZBarSDK/ZBarSDK" "${PODS_ROOT}/../../Sources/ARC/Main/Libs/CFCAPDF" "${PODS_ROOT}/../../Sources/ARC/Main/Libs/iSecurity/lib" "${PODS_ROOT}/../../Sources/ARC/Main/Libs/LibAES"
-OTHER_LDFLAGS = -l"MLog_4003" -l"PowerEnterEHO" -l"TrustSignPDFDS" -l"aes" -l"c" -l"crypto_1001e_0003_n" -l"iconv" -l"iconv.2.4.0" -l"smkernel_4007_n" -l"sqlite3" -l"stdc++" -l"z" -l"zbar" -framework "AVFoundation" -framework "CoreGraphics" -framework "CoreMedia" -framework "CoreVideo" -framework "Foundation" -framework "MobileCoreServices" -framework "QuartzCore" -framework "UIKit"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../../Sources/ARC/Main/Libs/CFCAPDF" "${PODS_ROOT}/../../Sources/ARC/Main/Libs/iSecurity/lib" "${PODS_ROOT}/../../Sources/ARC/Main/Libs/LibAES"
+OTHER_LDFLAGS = -l"MLog_4003" -l"PowerEnterEHO" -l"TrustSignPDFDS" -l"aes" -l"c" -l"c++" -l"crypto_1001e_0003_n" -l"iconv" -l"iconv.2.4.0" -l"smkernel_4007_n" -l"sqlite3" -l"stdc++" -l"z" -framework "AVFoundation" -framework "CoreGraphics" -framework "CoreMedia" -framework "CoreVideo" -framework "Foundation" -framework "MobileCoreServices" -framework "QuartzCore" -framework "UIKit"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_ROOT = ${SRCROOT}
